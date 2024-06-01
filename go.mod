@@ -3,10 +3,10 @@ module github.com/ibiscum/Hands-On-Software-Engineering-with-Golang
 go 1.22.1
 
 require (
-	github.com/blevesearch/bleve/v2 v2.3.6
+	github.com/blevesearch/bleve/v2 v2.3.7
 	github.com/elastic/go-elasticsearch v0.0.0
 	github.com/golang/mock v1.6.0
-	github.com/golang/protobuf v1.5.2
+	github.com/golang/protobuf v1.5.3
 	github.com/google/uuid v1.6.0
 	github.com/gorilla/mux v1.8.0
 	github.com/grpc-ecosystem/grpc-opentracing v0.0.0-20180507213350-8e809c8a8645
@@ -19,9 +19,9 @@ require (
 	github.com/sirupsen/logrus v1.9.3
 	github.com/uber/jaeger-client-go v2.30.0+incompatible
 	github.com/urfave/cli v1.22.11
-	golang.org/x/oauth2 v0.4.0
+	golang.org/x/oauth2 v0.7.0
 	golang.org/x/xerrors v0.0.0-20220907171357-04be3eba64a2
-	google.golang.org/grpc v1.53.0
+	google.golang.org/grpc v1.56.3
 	gopkg.in/check.v1 v1.0.0-20201130134442-10cb98267c6c
 )
 
@@ -45,7 +45,7 @@ require (
 	github.com/blevesearch/zapx/v12 v12.3.7 // indirect
 	github.com/blevesearch/zapx/v13 v13.3.7 // indirect
 	github.com/blevesearch/zapx/v14 v14.3.7 // indirect
-	github.com/blevesearch/zapx/v15 v15.3.8 // indirect
+	github.com/blevesearch/zapx/v15 v15.3.9 // indirect
 	github.com/cespare/xxhash/v2 v2.2.0 // indirect
 	github.com/cpuguy83/go-md2man/v2 v2.0.2 // indirect
 	github.com/golang/geo v0.0.0-20210211234256-740aa86cb551 // indirect
@@ -70,10 +70,10 @@ require (
 	github.com/uber/jaeger-lib v2.4.1+incompatible // indirect
 	go.etcd.io/bbolt v1.3.6 // indirect
 	go.uber.org/atomic v1.10.0 // indirect
-	golang.org/x/net v0.17.0 // indirect
-	golang.org/x/sys v0.13.0 // indirect
-	golang.org/x/text v0.13.0 // indirect
+	golang.org/x/net v0.23.0 // indirect
+	golang.org/x/sys v0.18.0 // indirect
+	golang.org/x/text v0.14.0 // indirect
 	google.golang.org/appengine v1.6.7 // indirect
-	google.golang.org/genproto v0.0.0-20230119192704-9d59e20e5cd1 // indirect
-	google.golang.org/protobuf v1.33.0 // indirect
+	google.golang.org/genproto v0.0.0-20230410155749-daa745c078e1 // indirect
+	google.golang.org/protobuf v1.34.1 // indirect
 )
