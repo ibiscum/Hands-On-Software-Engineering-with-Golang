@@ -5,7 +5,7 @@ import (
 	"math/rand"
 	"testing"
 
-	"github.com/PacktPublishing/Hands-On-Software-Engineering-with-Golang/Chapter08/color"
+	"github.com/ibiscum/Hands-On-Software-Engineering-with-Golang/Chapter08/color"
 	gc "gopkg.in/check.v1"
 )
 

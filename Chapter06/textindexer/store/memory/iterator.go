@@ -1,8 +1,8 @@
 package memory
 
 import (
-	"github.com/PacktPublishing/Hands-On-Software-Engineering-with-Golang/Chapter06/textindexer/index"
 	"github.com/blevesearch/bleve/v2"
+	"github.com/ibiscum/Hands-On-Software-Engineering-with-Golang/Chapter06/textindexer/index"
 )
 
 // bleveIterator implements index.Iterator.

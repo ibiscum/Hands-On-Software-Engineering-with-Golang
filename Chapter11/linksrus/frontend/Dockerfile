@@ -4,7 +4,7 @@
 FROM golang:1.13 AS builder
 
 # Pull build dependencies
-WORKDIR $GOPATH/src/github.com/PacktPublishing/Hands-On-Software-Engineering-with-Golang
+WORKDIR $GOPATH/src/github.com/ibiscum/Hands-On-Software-Engineering-with-Golang
 COPY . .
 RUN make deps
 
@@ -14,7 +14,7 @@ RUN GIT_SHA=$(git rev-parse --short HEAD) && \
     go build -a \
     -ldflags "-extldflags '-static' -w -s -X main.appSha=$GIT_SHA" \
     -o /go/bin/linksrus-frontend \
-    github.com/PacktPublishing/Hands-On-Software-Engineering-with-Golang/Chapter11/linksrus/frontend
+    github.com/ibiscum/Hands-On-Software-Engineering-with-Golang/Chapter11/linksrus/frontend
 
 ########################################################
 # STEP 2 create alpine image with trusted certs

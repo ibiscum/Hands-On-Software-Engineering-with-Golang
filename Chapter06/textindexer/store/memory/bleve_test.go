@@ -3,7 +3,7 @@ package memory
 import (
 	"testing"
 
-	"github.com/PacktPublishing/Hands-On-Software-Engineering-with-Golang/Chapter06/textindexer/index/indextest"
+	"github.com/ibiscum/Hands-On-Software-Engineering-with-Golang/Chapter06/textindexer/index/indextest"
 	gc "gopkg.in/check.v1"
 )
 

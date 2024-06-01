@@ -6,13 +6,13 @@ import (
 	"io"
 	"time"
 
-	"github.com/PacktPublishing/Hands-On-Software-Engineering-with-Golang/Chapter06/textindexer/index"
-	"github.com/PacktPublishing/Hands-On-Software-Engineering-with-Golang/Chapter09/linksrus/textindexerapi"
-	"github.com/PacktPublishing/Hands-On-Software-Engineering-with-Golang/Chapter09/linksrus/textindexerapi/mocks"
-	"github.com/PacktPublishing/Hands-On-Software-Engineering-with-Golang/Chapter09/linksrus/textindexerapi/proto"
 	"github.com/golang/mock/gomock"
 	"github.com/golang/protobuf/ptypes/empty"
 	"github.com/google/uuid"
+	"github.com/ibiscum/Hands-On-Software-Engineering-with-Golang/Chapter06/textindexer/index"
+	"github.com/ibiscum/Hands-On-Software-Engineering-with-Golang/Chapter09/linksrus/textindexerapi"
+	"github.com/ibiscum/Hands-On-Software-Engineering-with-Golang/Chapter09/linksrus/textindexerapi/mocks"
+	"github.com/ibiscum/Hands-On-Software-Engineering-with-Golang/Chapter09/linksrus/textindexerapi/proto"
 	gc "gopkg.in/check.v1"
 )
 

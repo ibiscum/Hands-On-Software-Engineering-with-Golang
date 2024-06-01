@@ -1,6 +1,6 @@
-module github.com/PacktPublishing/Hands-On-Software-Engineering-with-Golang
+module github.com/ibiscum/Hands-On-Software-Engineering-with-Golang
 
-go 1.18
+go 1.22.1
 
 require (
 	github.com/blevesearch/bleve/v2 v2.3.6

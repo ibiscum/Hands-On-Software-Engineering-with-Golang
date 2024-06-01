@@ -4,7 +4,7 @@ import (
 	"sync"
 	"sync/atomic"
 
-	"github.com/PacktPublishing/Hands-On-Software-Engineering-with-Golang/Chapter08/bspgraph/message"
+	"github.com/ibiscum/Hands-On-Software-Engineering-with-Golang/Chapter08/bspgraph/message"
 	"golang.org/x/xerrors"
 )
 

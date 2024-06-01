@@ -10,7 +10,7 @@ import (
 	"net/http/httptest"
 	"testing"
 
-	"github.com/PacktPublishing/Hands-On-Software-Engineering-with-Golang/Chapter09/pincert/dialer"
+	"github.com/ibiscum/Hands-On-Software-Engineering-with-Golang/Chapter09/pincert/dialer"
 	gc "gopkg.in/check.v1"
 )
 

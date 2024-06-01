@@ -3,7 +3,7 @@ package memory
 import (
 	"testing"
 
-	"github.com/PacktPublishing/Hands-On-Software-Engineering-with-Golang/Chapter06/linkgraph/graph/graphtest"
+	"github.com/ibiscum/Hands-On-Software-Engineering-with-Golang/Chapter06/linkgraph/graph/graphtest"
 	gc "gopkg.in/check.v1"
 )
 

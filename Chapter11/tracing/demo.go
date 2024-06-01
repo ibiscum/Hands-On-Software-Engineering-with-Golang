@@ -5,14 +5,14 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/PacktPublishing/Hands-On-Software-Engineering-with-Golang/Chapter11/tracing/service"
-	"github.com/PacktPublishing/Hands-On-Software-Engineering-with-Golang/Chapter11/tracing/tracer"
+	"github.com/ibiscum/Hands-On-Software-Engineering-with-Golang/Chapter11/tracing/service"
+	"github.com/ibiscum/Hands-On-Software-Engineering-with-Golang/Chapter11/tracing/tracer"
 )
 
 func main() {
 	fmt.Println(`
 This demo assumes that you are running a dockerized version of Jaeger.
-If not, start one by running the following command and try running 
+If not, start one by running the following command and try running
 this example again:
 
   docker run -d --name jaeger \

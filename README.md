@@ -2,9 +2,9 @@
 
 # Hands-on Software Engineering with Golang
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
-[![Go Report Card](https://goreportcard.com/badge/github.com/PacktPublishing/Hands-On-Software-Engineering-with-Golang)](https://goreportcard.com/report/github.com/PacktPublishing/Hands-On-Software-Engineering-with-Golang)
-[![Build Status](https://github.com/PacktPublishing/Hands-On-Software-Engineering-with-Golang/actions/workflows/ci.yaml/badge.svg)](https://github.com/PacktPublishing/Hands-On-Software-Engineering-with-Golang/actions/workflows/ci.yaml)
-[![Coverage Report](https://codecov.io/gh/PacktPublishing/Hands-On-Software-Engineering-with-Golang/branch/master/graph/badge.svg)](https://codecov.io/gh/PacktPublishing/Hands-On-Software-Engineering-with-Golang)
+[![Go Report Card](https://goreportcard.com/badge/github.com/ibiscum/Hands-On-Software-Engineering-with-Golang)](https://goreportcard.com/report/github.com/ibiscum/Hands-On-Software-Engineering-with-Golang)
+[![Build Status](https://github.com/ibiscum/Hands-On-Software-Engineering-with-Golang/actions/workflows/ci.yaml/badge.svg)](https://github.com/ibiscum/Hands-On-Software-Engineering-with-Golang/actions/workflows/ci.yaml)
+[![Coverage Report](https://codecov.io/gh/ibiscum/Hands-On-Software-Engineering-with-Golang/branch/master/graph/badge.svg)](https://codecov.io/gh/ibiscum/Hands-On-Software-Engineering-with-Golang)
 
 <a href="https://www.packtpub.com/in/programming/hands-on-software-engineering-with-golang?utm_source=github&utm_medium=repository&utm_campaign="><img src="https://www.packtpub.com/media/catalog/product/cache/e4d64343b1bc593f1c5348fe05efa4a6/9/7/9781838554491-original.png" alt="" height="256px" align="right"></a>
 
@@ -30,7 +30,7 @@ This book covers the following exciting features:
 
 If you feel this book is for you, get your [copy](https://www.amazon.com/dp/1838554491) today!
 
-<a href="https://www.packtpub.com/?utm_source=github&utm_medium=banner&utm_campaign=GitHubBanner"><img src="https://raw.githubusercontent.com/PacktPublishing/GitHub/master/GitHub.png" 
+<a href="https://www.packtpub.com/?utm_source=github&utm_medium=banner&utm_campaign=GitHubBanner"><img src="https://raw.githubusercontent.com/ibiscum/GitHub/master/GitHub.png"
 alt="https://www.packtpub.com/" border="5" /></a>
 
 ## Instructions

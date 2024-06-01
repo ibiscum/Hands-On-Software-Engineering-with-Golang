@@ -4,7 +4,7 @@ import (
 	"image"
 	"testing"
 
-	"github.com/PacktPublishing/Hands-On-Software-Engineering-with-Golang/Chapter04/captcha"
+	"github.com/ibiscum/Hands-On-Software-Engineering-with-Golang/Chapter04/captcha"
 )
 
 func TestChallengeUserSuccess(t *testing.T) {

@@ -1,7 +1,7 @@
 package bspgraph
 
 import (
-	"github.com/PacktPublishing/Hands-On-Software-Engineering-with-Golang/Chapter08/bspgraph/message"
+	"github.com/ibiscum/Hands-On-Software-Engineering-with-Golang/Chapter08/bspgraph/message"
 )
 
 // Aggregator is implemented by types that provide concurrent-safe aggregation

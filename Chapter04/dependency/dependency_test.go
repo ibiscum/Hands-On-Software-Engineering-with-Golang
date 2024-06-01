@@ -4,9 +4,9 @@ import (
 	"reflect"
 	"testing"
 
-	"github.com/PacktPublishing/Hands-On-Software-Engineering-with-Golang/Chapter04/dependency"
-	mock_dependency "github.com/PacktPublishing/Hands-On-Software-Engineering-with-Golang/Chapter04/dependency/mock"
 	"github.com/golang/mock/gomock"
+	"github.com/ibiscum/Hands-On-Software-Engineering-with-Golang/Chapter04/dependency"
+	mock_dependency "github.com/ibiscum/Hands-On-Software-Engineering-with-Golang/Chapter04/dependency/mock"
 )
 
 func TestDependencyCollector(t *testing.T) {

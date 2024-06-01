@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"testing"
 
-	"github.com/PacktPublishing/Hands-On-Software-Engineering-with-Golang/Chapter07/pipeline"
+	"github.com/ibiscum/Hands-On-Software-Engineering-with-Golang/Chapter07/pipeline"
 	"golang.org/x/xerrors"
 	gc "gopkg.in/check.v1"
 )

@@ -1,6 +1,6 @@
 package memory
 
-import "github.com/PacktPublishing/Hands-On-Software-Engineering-with-Golang/Chapter06/linkgraph/graph"
+import "github.com/ibiscum/Hands-On-Software-Engineering-with-Golang/Chapter06/linkgraph/graph"
 
 // linkIterator is a graph.LinkIterator implementation for the in-memory graph.
 type linkIterator struct {

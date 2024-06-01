@@ -6,20 +6,20 @@ import (
 	"net/http"
 	"time"
 
-	"github.com/PacktPublishing/Hands-On-Software-Engineering-with-Golang/Chapter06/linkgraph/graph"
-	"github.com/PacktPublishing/Hands-On-Software-Engineering-with-Golang/Chapter06/textindexer/index"
-	crawler_pipeline "github.com/PacktPublishing/Hands-On-Software-Engineering-with-Golang/Chapter07/crawler"
-	"github.com/PacktPublishing/Hands-On-Software-Engineering-with-Golang/Chapter07/crawler/privnet"
-	"github.com/PacktPublishing/Hands-On-Software-Engineering-with-Golang/Chapter10/linksrus/partition"
 	"github.com/google/uuid"
 	"github.com/hashicorp/go-multierror"
+	"github.com/ibiscum/Hands-On-Software-Engineering-with-Golang/Chapter06/linkgraph/graph"
+	"github.com/ibiscum/Hands-On-Software-Engineering-with-Golang/Chapter06/textindexer/index"
+	crawler_pipeline "github.com/ibiscum/Hands-On-Software-Engineering-with-Golang/Chapter07/crawler"
+	"github.com/ibiscum/Hands-On-Software-Engineering-with-Golang/Chapter07/crawler/privnet"
+	"github.com/ibiscum/Hands-On-Software-Engineering-with-Golang/Chapter10/linksrus/partition"
 	"github.com/juju/clock"
 	"github.com/sirupsen/logrus"
 	"golang.org/x/xerrors"
 )
 
-//go:generate mockgen -package mocks -destination mocks/mocks.go github.com/PacktPublishing/Hands-On-Software-Engineering-with-Golang/Chapter10/linksrus/service/crawler GraphAPI,IndexAPI
-//go:generate mockgen -package mocks -destination mocks/mock_iterator.go github.com/PacktPublishing/Hands-On-Software-Engineering-with-Golang/Chapter06/linkgraph/graph LinkIterator
+//go:generate mockgen -package mocks -destination mocks/mocks.go github.com/ibiscum/Hands-On-Software-Engineering-with-Golang/Chapter10/linksrus/service/crawler GraphAPI,IndexAPI
+//go:generate mockgen -package mocks -destination mocks/mock_iterator.go github.com/ibiscum/Hands-On-Software-Engineering-with-Golang/Chapter06/linkgraph/graph LinkIterator
 
 // GraphAPI defines as set of API methods for accessing the link graph.
 type GraphAPI interface {

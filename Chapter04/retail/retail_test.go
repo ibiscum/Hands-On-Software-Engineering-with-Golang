@@ -6,7 +6,7 @@ import (
 	"net/http/httptest"
 	"testing"
 
-	"github.com/PacktPublishing/Hands-On-Software-Engineering-with-Golang/Chapter04/retail"
+	"github.com/ibiscum/Hands-On-Software-Engineering-with-Golang/Chapter04/retail"
 )
 
 func TestPriceForItem(t *testing.T) {

@@ -5,8 +5,8 @@ import (
 	"net/url"
 	"sort"
 
-	"github.com/PacktPublishing/Hands-On-Software-Engineering-with-Golang/Chapter07/crawler/mocks"
 	"github.com/golang/mock/gomock"
+	"github.com/ibiscum/Hands-On-Software-Engineering-with-Golang/Chapter07/crawler/mocks"
 	gc "gopkg.in/check.v1"
 )
 

@@ -4,15 +4,15 @@ import (
 	"database/sql"
 	"time"
 
-	"github.com/PacktPublishing/Hands-On-Software-Engineering-with-Golang/Chapter06/linkgraph/graph"
 	"github.com/google/uuid"
+	"github.com/ibiscum/Hands-On-Software-Engineering-with-Golang/Chapter06/linkgraph/graph"
 	"github.com/lib/pq"
 	"golang.org/x/xerrors"
 )
 
 var (
 	upsertLinkQuery = `
-INSERT INTO links (url, retrieved_at) VALUES ($1, $2) 
+INSERT INTO links (url, retrieved_at) VALUES ($1, $2)
 ON CONFLICT (url) DO UPDATE SET retrieved_at=GREATEST(links.retrieved_at, $2)
 RETURNING id, retrieved_at
 `
