@@ -6,7 +6,7 @@ require (
 	github.com/blevesearch/bleve/v2 v2.3.7
 	github.com/elastic/go-elasticsearch v0.0.0
 	github.com/golang/mock v1.6.0
-	github.com/golang/protobuf v1.5.3
+	github.com/golang/protobuf v1.5.4
 	github.com/google/uuid v1.6.0
 	github.com/gorilla/mux v1.8.0
 	github.com/grpc-ecosystem/grpc-opentracing v0.0.0-20180507213350-8e809c8a8645
