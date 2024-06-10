@@ -21,7 +21,7 @@ require (
 	github.com/urfave/cli v1.22.15
 	golang.org/x/oauth2 v0.20.0
 	golang.org/x/xerrors v0.0.0-20220907171357-04be3eba64a2
-	google.golang.org/grpc v1.56.3
+	google.golang.org/grpc v1.64.0
 	gopkg.in/check.v1 v1.0.0-20201130134442-10cb98267c6c
 )
 
