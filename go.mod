@@ -8,7 +8,7 @@ require (
 	github.com/golang/mock v1.6.0
 	github.com/golang/protobuf v1.5.4
 	github.com/google/uuid v1.6.0
-	github.com/gorilla/mux v1.8.0
+	github.com/gorilla/mux v1.8.1
 	github.com/grpc-ecosystem/grpc-opentracing v0.0.0-20180507213350-8e809c8a8645
 	github.com/hashicorp/go-multierror v1.1.1
 	github.com/juju/clock v1.0.3
