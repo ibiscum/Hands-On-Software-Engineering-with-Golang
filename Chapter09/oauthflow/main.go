@@ -8,7 +8,7 @@ import (
 	"os"
 	"time"
 
-	"github.com/PacktPublishing/Hands-On-Software-Engineering-with-Golang/Chapter09/oauthflow/auth"
+	"github.com/ibiscum/Hands-On-Software-Engineering-with-Golang/Chapter09/oauthflow/auth"
 	"golang.org/x/oauth2"
 	"golang.org/x/oauth2/github"
 	"golang.org/x/xerrors"

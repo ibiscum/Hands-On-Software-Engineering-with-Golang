@@ -4,8 +4,8 @@ import (
 	"context"
 	"time"
 
-	"github.com/PacktPublishing/Hands-On-Software-Engineering-with-Golang/Chapter06/textindexer/index"
-	"github.com/PacktPublishing/Hands-On-Software-Engineering-with-Golang/Chapter07/pipeline"
+	"github.com/ibiscum/Hands-On-Software-Engineering-with-Golang/Chapter06/textindexer/index"
+	"github.com/ibiscum/Hands-On-Software-Engineering-with-Golang/Chapter07/pipeline"
 )
 
 type textIndexer struct {

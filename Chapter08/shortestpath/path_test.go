@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"testing"
 
-	"github.com/PacktPublishing/Hands-On-Software-Engineering-with-Golang/Chapter08/shortestpath"
+	"github.com/ibiscum/Hands-On-Software-Engineering-with-Golang/Chapter08/shortestpath"
 	gc "gopkg.in/check.v1"
 )
 

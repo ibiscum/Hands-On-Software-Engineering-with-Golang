@@ -5,10 +5,10 @@ import (
 	"testing"
 	"time"
 
-	"github.com/PacktPublishing/Hands-On-Software-Engineering-with-Golang/Chapter10/linksrus/partition"
-	"github.com/PacktPublishing/Hands-On-Software-Engineering-with-Golang/Chapter10/linksrus/service/crawler/mocks"
 	"github.com/golang/mock/gomock"
 	"github.com/google/uuid"
+	"github.com/ibiscum/Hands-On-Software-Engineering-with-Golang/Chapter10/linksrus/partition"
+	"github.com/ibiscum/Hands-On-Software-Engineering-with-Golang/Chapter10/linksrus/service/crawler/mocks"
 	"github.com/juju/clock/testclock"
 	gc "gopkg.in/check.v1"
 )

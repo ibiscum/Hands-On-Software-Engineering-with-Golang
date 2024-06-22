@@ -1,3 +1,4 @@
+//go:build integration_tests || all_tests
 // +build integration_tests all_tests
 
 package crawler_test
@@ -9,13 +10,13 @@ import (
 	"sort"
 	"time"
 
-	"github.com/PacktPublishing/Hands-On-Software-Engineering-with-Golang/Chapter06/linkgraph/graph"
-	memgraph "github.com/PacktPublishing/Hands-On-Software-Engineering-with-Golang/Chapter06/linkgraph/store/memory"
-	"github.com/PacktPublishing/Hands-On-Software-Engineering-with-Golang/Chapter06/textindexer/index"
-	memidx "github.com/PacktPublishing/Hands-On-Software-Engineering-with-Golang/Chapter06/textindexer/store/memory"
-	"github.com/PacktPublishing/Hands-On-Software-Engineering-with-Golang/Chapter07/crawler"
-	"github.com/PacktPublishing/Hands-On-Software-Engineering-with-Golang/Chapter07/crawler/privnet"
 	"github.com/google/uuid"
+	"github.com/ibiscum/Hands-On-Software-Engineering-with-Golang/Chapter06/linkgraph/graph"
+	memgraph "github.com/ibiscum/Hands-On-Software-Engineering-with-Golang/Chapter06/linkgraph/store/memory"
+	"github.com/ibiscum/Hands-On-Software-Engineering-with-Golang/Chapter06/textindexer/index"
+	memidx "github.com/ibiscum/Hands-On-Software-Engineering-with-Golang/Chapter06/textindexer/store/memory"
+	"github.com/ibiscum/Hands-On-Software-Engineering-with-Golang/Chapter07/crawler"
+	"github.com/ibiscum/Hands-On-Software-Engineering-with-Golang/Chapter07/crawler/privnet"
 	gc "gopkg.in/check.v1"
 )
 
@@ -32,7 +33,7 @@ var (
 	  <a href="./relative">I am a link relative to base</a>
 	  <a href="/absolute/path">I am an absolute link</a>
 	  <a href="//images/cart.png">I am using the same URL scheme as this page</a>
-	  
+
 	  <!-- Link should be added to the index but without creating an edge to it -->
 	  <a href="ignore-me" rel="nofollow"/>
 

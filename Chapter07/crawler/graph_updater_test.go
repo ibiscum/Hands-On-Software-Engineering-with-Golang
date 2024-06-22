@@ -5,10 +5,10 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/PacktPublishing/Hands-On-Software-Engineering-with-Golang/Chapter06/linkgraph/graph"
-	"github.com/PacktPublishing/Hands-On-Software-Engineering-with-Golang/Chapter07/crawler/mocks"
 	"github.com/golang/mock/gomock"
 	"github.com/google/uuid"
+	"github.com/ibiscum/Hands-On-Software-Engineering-with-Golang/Chapter06/linkgraph/graph"
+	"github.com/ibiscum/Hands-On-Software-Engineering-with-Golang/Chapter07/crawler/mocks"
 	gc "gopkg.in/check.v1"
 )
 

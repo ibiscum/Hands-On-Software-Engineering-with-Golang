@@ -5,7 +5,7 @@ import (
 	"io"
 	"sync"
 
-	"github.com/PacktPublishing/Hands-On-Software-Engineering-with-Golang/Chapter12/dbspgraph/proto"
+	"github.com/ibiscum/Hands-On-Software-Engineering-with-Golang/Chapter12/dbspgraph/proto"
 	"golang.org/x/xerrors"
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"

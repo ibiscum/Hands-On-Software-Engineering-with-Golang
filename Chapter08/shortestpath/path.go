@@ -4,8 +4,8 @@ import (
 	"context"
 	"math"
 
-	"github.com/PacktPublishing/Hands-On-Software-Engineering-with-Golang/Chapter08/bspgraph"
-	"github.com/PacktPublishing/Hands-On-Software-Engineering-with-Golang/Chapter08/bspgraph/message"
+	"github.com/ibiscum/Hands-On-Software-Engineering-with-Golang/Chapter08/bspgraph"
+	"github.com/ibiscum/Hands-On-Software-Engineering-with-Golang/Chapter08/bspgraph/message"
 	"golang.org/x/xerrors"
 )
 

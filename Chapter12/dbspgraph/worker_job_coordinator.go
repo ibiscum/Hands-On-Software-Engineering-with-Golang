@@ -4,10 +4,10 @@ import (
 	"context"
 	"sync"
 
-	"github.com/PacktPublishing/Hands-On-Software-Engineering-with-Golang/Chapter08/bspgraph"
-	"github.com/PacktPublishing/Hands-On-Software-Engineering-with-Golang/Chapter08/bspgraph/message"
-	"github.com/PacktPublishing/Hands-On-Software-Engineering-with-Golang/Chapter12/dbspgraph/job"
-	"github.com/PacktPublishing/Hands-On-Software-Engineering-with-Golang/Chapter12/dbspgraph/proto"
+	"github.com/ibiscum/Hands-On-Software-Engineering-with-Golang/Chapter08/bspgraph"
+	"github.com/ibiscum/Hands-On-Software-Engineering-with-Golang/Chapter08/bspgraph/message"
+	"github.com/ibiscum/Hands-On-Software-Engineering-with-Golang/Chapter12/dbspgraph/job"
+	"github.com/ibiscum/Hands-On-Software-Engineering-with-Golang/Chapter12/dbspgraph/proto"
 	"github.com/sirupsen/logrus"
 	"golang.org/x/xerrors"
 )

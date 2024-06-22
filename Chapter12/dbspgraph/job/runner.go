@@ -1,6 +1,6 @@
 package job
 
-import "github.com/PacktPublishing/Hands-On-Software-Engineering-with-Golang/Chapter08/bspgraph"
+import "github.com/ibiscum/Hands-On-Software-Engineering-with-Golang/Chapter08/bspgraph"
 
 // Runner is implemented by types that can execute distributed bspgraph jobs.
 type Runner interface {

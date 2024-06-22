@@ -4,10 +4,10 @@ import (
 	"sync"
 	"time"
 
-	"github.com/PacktPublishing/Hands-On-Software-Engineering-with-Golang/Chapter06/textindexer/index"
 	"github.com/blevesearch/bleve/v2"
 	"github.com/blevesearch/bleve/v2/search/query"
 	"github.com/google/uuid"
+	"github.com/ibiscum/Hands-On-Software-Engineering-with-Golang/Chapter06/textindexer/index"
 	"golang.org/x/xerrors"
 )
 

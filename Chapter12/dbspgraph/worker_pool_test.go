@@ -4,8 +4,8 @@ import (
 	"context"
 	"time"
 
-	"github.com/PacktPublishing/Hands-On-Software-Engineering-with-Golang/Chapter12/dbspgraph/mocks"
 	"github.com/golang/mock/gomock"
+	"github.com/ibiscum/Hands-On-Software-Engineering-with-Golang/Chapter12/dbspgraph/mocks"
 	gc "gopkg.in/check.v1"
 )
 

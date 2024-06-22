@@ -5,14 +5,14 @@ import (
 	"io"
 	"time"
 
-	"github.com/PacktPublishing/Hands-On-Software-Engineering-with-Golang/Chapter06/linkgraph/graph"
-	"github.com/PacktPublishing/Hands-On-Software-Engineering-with-Golang/Chapter09/linksrus/linkgraphapi"
-	"github.com/PacktPublishing/Hands-On-Software-Engineering-with-Golang/Chapter09/linksrus/linkgraphapi/mocks"
-	"github.com/PacktPublishing/Hands-On-Software-Engineering-with-Golang/Chapter09/linksrus/linkgraphapi/proto"
 	"github.com/golang/mock/gomock"
 	"github.com/golang/protobuf/ptypes"
 	"github.com/golang/protobuf/ptypes/empty"
 	"github.com/google/uuid"
+	"github.com/ibiscum/Hands-On-Software-Engineering-with-Golang/Chapter06/linkgraph/graph"
+	"github.com/ibiscum/Hands-On-Software-Engineering-with-Golang/Chapter09/linksrus/linkgraphapi"
+	"github.com/ibiscum/Hands-On-Software-Engineering-with-Golang/Chapter09/linksrus/linkgraphapi/mocks"
+	"github.com/ibiscum/Hands-On-Software-Engineering-with-Golang/Chapter09/linksrus/linkgraphapi/proto"
 	gc "gopkg.in/check.v1"
 )
 

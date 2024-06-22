@@ -4,8 +4,8 @@ import (
 	"encoding/binary"
 	"math"
 
-	pr "github.com/PacktPublishing/Hands-On-Software-Engineering-with-Golang/Chapter08/pagerank"
 	"github.com/golang/protobuf/ptypes/any"
+	pr "github.com/ibiscum/Hands-On-Software-Engineering-with-Golang/Chapter08/pagerank"
 	"golang.org/x/xerrors"
 )
 

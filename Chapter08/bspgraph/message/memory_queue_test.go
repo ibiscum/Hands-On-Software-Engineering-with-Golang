@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"testing"
 
-	"github.com/PacktPublishing/Hands-On-Software-Engineering-with-Golang/Chapter08/bspgraph/message"
+	"github.com/ibiscum/Hands-On-Software-Engineering-with-Golang/Chapter08/bspgraph/message"
 	gc "gopkg.in/check.v1"
 )
 

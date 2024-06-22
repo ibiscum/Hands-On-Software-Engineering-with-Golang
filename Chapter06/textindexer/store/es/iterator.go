@@ -1,8 +1,8 @@
 package es
 
 import (
-	"github.com/PacktPublishing/Hands-On-Software-Engineering-with-Golang/Chapter06/textindexer/index"
 	"github.com/elastic/go-elasticsearch"
+	"github.com/ibiscum/Hands-On-Software-Engineering-with-Golang/Chapter06/textindexer/index"
 )
 
 // esIterator implements index.Iterator.

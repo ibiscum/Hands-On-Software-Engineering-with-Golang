@@ -8,7 +8,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/PacktPublishing/Hands-On-Software-Engineering-with-Golang/Chapter08/pagerank"
+	"github.com/ibiscum/Hands-On-Software-Engineering-with-Golang/Chapter08/pagerank"
 	gc "gopkg.in/check.v1"
 )
 
@@ -93,7 +93,7 @@ func (s *CalculatorTestSuite) TestSimpleGraphCase3(c *gc.C) {
 		descr: `
  (A) <-> (B) <-> (C)
 
-Expect A and C to get the same score and B to get the largest score since there 
+Expect A and C to get the same score and B to get the largest score since there
 are two links pointing to it.
 `,
 		vertices: []string{"A", "B", "C"},
@@ -122,7 +122,7 @@ Expect that S(C) < S(A) < S(B). C is a dead-end as it has no outgoing links.
 The algorithm deals with such cases by transferring C's score to a random node
 in the graph; essentially, it's like C is connected to all other nodes in the
 graph. As a result, A and C get a backlink from C; B now has two links pointing
-at it (from A and C's backlink) and hence has the biggest score. Due to the 
+at it (from A and C's backlink) and hence has the biggest score. Due to the
 random teleportation from C, C will get a slightly lower score than A.
 `,
 		vertices: []string{"A", "B", "C"},

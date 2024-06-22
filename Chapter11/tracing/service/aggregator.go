@@ -4,9 +4,9 @@ import (
 	"context"
 	"sync"
 
-	"github.com/PacktPublishing/Hands-On-Software-Engineering-with-Golang/Chapter11/tracing/proto"
-	"github.com/PacktPublishing/Hands-On-Software-Engineering-with-Golang/Chapter11/tracing/tracer"
 	"github.com/grpc-ecosystem/grpc-opentracing/go/otgrpc"
+	"github.com/ibiscum/Hands-On-Software-Engineering-with-Golang/Chapter11/tracing/proto"
+	"github.com/ibiscum/Hands-On-Software-Engineering-with-Golang/Chapter11/tracing/tracer"
 	"golang.org/x/xerrors"
 	"google.golang.org/grpc"
 )

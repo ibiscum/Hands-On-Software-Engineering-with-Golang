@@ -4,12 +4,12 @@ import (
 	"context"
 	"time"
 
-	"github.com/PacktPublishing/Hands-On-Software-Engineering-with-Golang/Chapter06/textindexer/index"
-	"github.com/PacktPublishing/Hands-On-Software-Engineering-with-Golang/Chapter09/linksrus/textindexerapi/proto"
 	"github.com/golang/protobuf/ptypes"
 	"github.com/golang/protobuf/ptypes/empty"
 	"github.com/golang/protobuf/ptypes/timestamp"
 	"github.com/google/uuid"
+	"github.com/ibiscum/Hands-On-Software-Engineering-with-Golang/Chapter06/textindexer/index"
+	"github.com/ibiscum/Hands-On-Software-Engineering-with-Golang/Chapter09/linksrus/textindexerapi/proto"
 )
 
 var _ proto.TextIndexerServer = (*TextIndexerServer)(nil)

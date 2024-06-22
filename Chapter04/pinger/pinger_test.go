@@ -9,7 +9,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/PacktPublishing/Hands-On-Software-Engineering-with-Golang/Chapter04/pinger"
+	"github.com/ibiscum/Hands-On-Software-Engineering-with-Golang/Chapter04/pinger"
 	"gopkg.in/check.v1"
 )
 
@@ -47,7 +47,7 @@ func (s *PingerSuite) TestRealPing(c *check.C) {
 }
 
 var (
-	unixTemplate = `#!/bin/bash 
+	unixTemplate = `#!/bin/bash
 cat <<!!!EOF!!! | perl -pe 'chomp if eof'
 %s
 !!!EOF!!!

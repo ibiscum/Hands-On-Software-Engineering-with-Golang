@@ -6,7 +6,7 @@ import (
 	"sync"
 	"time"
 
-	"github.com/PacktPublishing/Hands-On-Software-Engineering-with-Golang/Chapter12/dbspgraph/proto"
+	"github.com/ibiscum/Hands-On-Software-Engineering-with-Golang/Chapter12/dbspgraph/proto"
 	"google.golang.org/grpc"
 	gc "gopkg.in/check.v1"
 )
