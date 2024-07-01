@@ -22,6 +22,7 @@ lint: lint-check-deps
 		--exclude-use-default=false \
 		-e SA1019 \
 		--timeout 5m \
+		-v \
 		./...
 
 lint-check-deps:
