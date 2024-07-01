@@ -2,7 +2,6 @@ package pinger_test
 
 import (
 	"fmt"
-	"io/ioutil"
 	"os"
 	"path/filepath"
 	"runtime"
@@ -70,7 +69,7 @@ func mockCmdOutput(c *check.C, cmdName, output string, exitCode int) {
 		pathToFakeBin += ".bat"
 		template = winTemplate
 		outFile := filepath.Join(tmpDir, "output.txt")
-		err := ioutil.WriteFile(outFile, []byte(output), os.ModePerm)
+		err := os.WriteFile(outFile, []byte(output), os.ModePerm)
 		c.Assert(err, check.IsNil)
 
 		output = outFile

@@ -2,7 +2,7 @@ package crawler
 
 import (
 	"context"
-	"io/ioutil"
+	"io"
 	"net/http"
 	"strings"
 
@@ -121,7 +121,7 @@ func (s *LinkFetcherTestSuite) fetchLink(c *gc.C, url string) *crawlerPayload {
 
 func makeResponse(status int, body, contentType string) *http.Response {
 	res := new(http.Response)
-	res.Body = ioutil.NopCloser(strings.NewReader(body))
+	res.Body = io.NopCloser(strings.NewReader(body))
 	res.StatusCode = status
 	if contentType != "" {
 		res.Header = make(http.Header)

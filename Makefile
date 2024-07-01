@@ -17,7 +17,6 @@ lint: lint-check-deps
 	@echo "[golangci-lint] linting sources"
 	@golangci-lint run \
 		-E misspell \
-		-E golint \
 		-E gofmt \
 		-E unconvert \
 		--exclude-use-default=false \

@@ -5,7 +5,6 @@ import (
 	"encoding/json"
 	"errors"
 	"io"
-	"io/ioutil"
 	"testing"
 )
 
@@ -71,7 +70,7 @@ func (c stubSvcCaller) Call(map[string]interface{}) (io.ReadCloser, error) {
 		return nil, err
 	}
 
-	return ioutil.NopCloser(bytes.NewReader(data)), nil
+	return io.NopCloser(bytes.NewReader(data)), nil
 }
 
 type stubErrCaller struct {

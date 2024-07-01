@@ -1,6 +1,7 @@
 package graphtest
 
 import (
+	"errors"
 	"fmt"
 	"math/big"
 	"sort"
@@ -9,7 +10,6 @@ import (
 
 	"github.com/google/uuid"
 	"github.com/ibiscum/Hands-On-Software-Engineering-with-Golang/Chapter06/linkgraph/graph"
-	"golang.org/x/xerrors"
 	gc "gopkg.in/check.v1"
 )
 
@@ -94,7 +94,7 @@ func (s *SuiteBase) TestFindLink(c *gc.C) {
 
 	// Lookup link by unknown ID
 	_, err = s.g.FindLink(uuid.Nil)
-	c.Assert(xerrors.Is(err, graph.ErrNotFound), gc.Equals, true)
+	c.Assert(errors.Is(err, graph.ErrNotFound), gc.Equals, true)
 }
 
 // TestConcurrentLinkIterators verifies that multiple clients can concurrently
@@ -260,7 +260,7 @@ func (s *SuiteBase) TestUpsertEdge(c *gc.C) {
 		Dst: uuid.New(),
 	}
 	err = s.g.UpsertEdge(bogus)
-	c.Assert(xerrors.Is(err, graph.ErrUnknownEdgeLinks), gc.Equals, true)
+	c.Assert(errors.Is(err, graph.ErrUnknownEdgeLinks), gc.Equals, true)
 }
 
 // TestConcurrentEdgeIterators verifies that multiple clients can concurrently

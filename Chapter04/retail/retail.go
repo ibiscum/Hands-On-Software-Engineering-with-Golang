@@ -4,7 +4,6 @@ import (
 	"encoding/json"
 	"fmt"
 	"io"
-	"io/ioutil"
 	"net/http"
 	"net/url"
 	"time"
@@ -119,6 +118,6 @@ func drainAndClose(r io.ReadCloser) {
 	if r == nil {
 		return
 	}
-	_, _ = io.Copy(ioutil.Discard, r)
+	_, _ = io.Copy(io.Discard, r)
 	_ = r.Close()
 }
