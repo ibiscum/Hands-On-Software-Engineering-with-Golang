@@ -8,6 +8,7 @@ import (
 	"github.com/ibiscum/Hands-On-Software-Engineering-with-Golang/Chapter11/tracing/tracer"
 	"github.com/opentracing/opentracing-go"
 	"google.golang.org/grpc"
+	"google.golang.org/grpc/credentials/insecure"
 )
 
 // Gateway simulates an API gateway that would handle requests from a front-end.
@@ -23,7 +24,7 @@ func NewGateway(serviceName, aggrAddr string) (*Gateway, error) {
 		otgrpc.OpenTracingClientInterceptor(tracer.MustGetTracer(serviceName)),
 	)
 
-	conn, err := grpc.Dial(aggrAddr, grpc.WithInsecure(), tracerOpt)
+	conn, err := grpc.NewClient(aggrAddr, grpc.WithTransportCredentials(insecure.NewCredentials()), tracerOpt)
 	if err != nil {
 		return nil, err
 	}

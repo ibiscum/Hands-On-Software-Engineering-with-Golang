@@ -2,6 +2,7 @@ package pagerank
 
 import (
 	"context"
+	"errors"
 	"io/ioutil"
 	"time"
 
@@ -124,7 +125,7 @@ func (svc *Service) Run(ctx context.Context) error {
 		case <-svc.cfg.Clock.After(svc.cfg.UpdateInterval):
 			curPartition, _, err := svc.cfg.PartitionDetector.PartitionInfo()
 			if err != nil {
-				if xerrors.Is(err, partition.ErrNoPartitionDataAvailableYet) {
+				if errors.Is(err, partition.ErrNoPartitionDataAvailableYet) {
 					svc.cfg.Logger.Warn("deferring PageRank update pass: partition data not yet available")
 					continue
 				}

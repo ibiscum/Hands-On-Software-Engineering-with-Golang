@@ -150,7 +150,7 @@ func (s *CalculatorTestSuite) assertConvergence(c *gc.C, numLinks, maxOutLinks i
 	defer func() { _ = calc.Close() }()
 
 	// Make the graph generation and teleports deterministic for each test.
-	rand.Seed(42)
+	//rand.Seed(42)
 
 	names := make([]string, numLinks)
 	for i := 0; i < numLinks; i++ {
@@ -189,7 +189,7 @@ func (s *CalculatorTestSuite) assertPageRankScores(c *gc.C, spec spec) {
 	c.Log(spec.descr)
 
 	// Make teleports deterministic for each test.
-	rand.Seed(42)
+	//rand.Seed(42)
 
 	calc, err := pagerank.NewCalculator(pagerank.Config{
 		ComputeWorkers: 2,

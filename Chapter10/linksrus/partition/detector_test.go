@@ -1,6 +1,7 @@
 package partition
 
 import (
+	"errors"
 	"net"
 	"os"
 
@@ -51,7 +52,7 @@ func (s *DetectorTestSuite) TestDetectFromSRVRecordsWithNoDataAvailable(c *gc.C)
 
 	det := DetectFromSRVRecords("web-service")
 	_, _, err := det.PartitionInfo()
-	c.Assert(xerrors.Is(err, ErrNoPartitionDataAvailableYet), gc.Equals, true)
+	c.Assert(errors.Is(err, ErrNoPartitionDataAvailableYet), gc.Equals, true)
 }
 
 func (s *DetectorTestSuite) TestFixedDetector(c *gc.C) {

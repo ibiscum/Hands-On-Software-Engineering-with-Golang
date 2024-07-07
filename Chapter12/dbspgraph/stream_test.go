@@ -8,6 +8,7 @@ import (
 
 	"github.com/ibiscum/Hands-On-Software-Engineering-with-Golang/Chapter12/dbspgraph/proto"
 	"google.golang.org/grpc"
+	"google.golang.org/grpc/credentials/insecure"
 	gc "gopkg.in/check.v1"
 )
 
@@ -32,7 +33,7 @@ func (s *RealStreamTestSuite) SetUpTest(c *gc.C) {
 	proto.RegisterJobQueueServer(srv, s)
 	go func() { _ = srv.Serve(l) }()
 
-	s.cliConn, err = grpc.Dial(l.Addr().String(), grpc.WithInsecure())
+	s.cliConn, err = grpc.NewClient(l.Addr().String(), grpc.WithTransportCredentials(insecure.NewCredentials()))
 	c.Assert(err, gc.IsNil)
 	cli := proto.NewJobQueueClient(s.cliConn)
 	cliStream, err := cli.JobStream(context.TODO())

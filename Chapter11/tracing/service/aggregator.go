@@ -9,6 +9,7 @@ import (
 	"github.com/ibiscum/Hands-On-Software-Engineering-with-Golang/Chapter11/tracing/tracer"
 	"golang.org/x/xerrors"
 	"google.golang.org/grpc"
+	"google.golang.org/grpc/credentials/insecure"
 )
 
 // Aggregator collects and returns price quotes from a set of downstream
@@ -70,7 +71,7 @@ func (a *Aggregator) Serve(ctx context.Context) (string, error) {
 	tracerClientOpt := grpc.WithUnaryInterceptor(otgrpc.OpenTracingClientInterceptor(tracer))
 
 	for _, addr := range a.providerAddrs {
-		conn, err := grpc.Dial(addr, grpc.WithInsecure(), tracerClientOpt)
+		conn, err := grpc.NewClient(addr, grpc.WithTransportCredentials(insecure.NewCredentials()), tracerClientOpt)
 		if err != nil {
 			return "", xerrors.Errorf("dialing provider at %s: %w", addr, err)
 		}

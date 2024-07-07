@@ -5,7 +5,7 @@ import (
 	"crypto/tls"
 	"crypto/x509"
 	"fmt"
-	"io/ioutil"
+	"io"
 	"net/http"
 	"net/http/httptest"
 	"testing"
@@ -58,7 +58,7 @@ func (s *DialerTestSuite) TestValidCertificateFingerprint(c *gc.C) {
 
 	res, err := client.Get(s.srv.URL)
 	c.Assert(err, gc.IsNil)
-	body, err := ioutil.ReadAll(res.Body)
+	body, err := io.ReadAll(res.Body)
 	_ = res.Body.Close()
 	c.Assert(err, gc.IsNil)
 

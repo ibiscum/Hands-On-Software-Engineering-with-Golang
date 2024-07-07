@@ -6,6 +6,7 @@ import (
 
 	"github.com/golang/protobuf/ptypes"
 	"github.com/golang/protobuf/ptypes/timestamp"
+	"google.golang.org/protobuf/types/known/timestamppb"
 	gc "gopkg.in/check.v1"
 )
 
@@ -14,9 +15,8 @@ func Test(t *testing.T) {
 	gc.TestingT(t)
 }
 
-func mustEncodeTimestamp(c *gc.C, t time.Time) *timestamp.Timestamp {
-	ts, err := ptypes.TimestampProto(t)
-	c.Assert(err, gc.IsNil)
+func mustEncodeTimestamp(t time.Time) *timestamp.Timestamp {
+	ts := timestamppb.New(t)
 	return ts
 }
 

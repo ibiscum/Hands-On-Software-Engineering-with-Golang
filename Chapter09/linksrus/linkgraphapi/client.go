@@ -9,6 +9,7 @@ import (
 	"github.com/google/uuid"
 	"github.com/ibiscum/Hands-On-Software-Engineering-with-Golang/Chapter06/linkgraph/graph"
 	"github.com/ibiscum/Hands-On-Software-Engineering-with-Golang/Chapter09/linksrus/linkgraphapi/proto"
+	"google.golang.org/protobuf/types/known/timestamppb"
 )
 
 //go:generate mockgen -package mocks -destination mocks/mock.go github.com/ibiscum/Hands-On-Software-Engineering-with-Golang/Chapter09/linksrus/linkgraphapi/proto LinkGraphClient,LinkGraph_LinksClient,LinkGraph_EdgesClient
@@ -96,10 +97,7 @@ func (c *LinkGraphClient) Links(fromID, toID uuid.UUID, accessedBefore time.Time
 // belong to the [fromID, toID) range and were last updated before the provided
 // value.
 func (c *LinkGraphClient) Edges(fromID, toID uuid.UUID, updatedBefore time.Time) (graph.EdgeIterator, error) {
-	filter, err := ptypes.TimestampProto(updatedBefore)
-	if err != nil {
-		return nil, err
-	}
+	filter := timestamppb.New(updatedBefore)
 
 	req := &proto.Range{
 		FromUuid: fromID[:],

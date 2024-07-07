@@ -13,6 +13,7 @@ import (
 	"github.com/ibiscum/Hands-On-Software-Engineering-with-Golang/Chapter09/linksrus/linkgraphapi"
 	"github.com/ibiscum/Hands-On-Software-Engineering-with-Golang/Chapter09/linksrus/linkgraphapi/proto"
 	"google.golang.org/grpc"
+	"google.golang.org/grpc/credentials/insecure"
 	"google.golang.org/grpc/test/bufconn"
 	gc "gopkg.in/check.v1"
 )
@@ -43,10 +44,10 @@ func (s *ServerTestSuite) SetUpTest(c *gc.C) {
 	}()
 
 	var err error
-	s.cliConn, err = grpc.Dial(
+	s.cliConn, err = grpc.NewClient(
 		"bufnet",
 		grpc.WithContextDialer(func(context.Context, string) (net.Conn, error) { return s.netListener.Dial() }),
-		grpc.WithInsecure(),
+		grpc.WithTransportCredentials(insecure.NewCredentials()),
 	)
 	c.Assert(err, gc.IsNil)
 	s.cli = proto.NewLinkGraphClient(s.cliConn)

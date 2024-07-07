@@ -158,7 +158,7 @@ func (s *DistributedPageRankTestSuite) generateGraph(c *gc.C, numLinks, maxOutEd
 	}
 
 	// Make the link configuration deterministic across test runs
-	rand.Seed(42)
+	// rand.Seed(42)
 	for i := 0; i < numLinks; i++ {
 		edgeCount := rand.Intn(maxOutEdges)
 		for j := 0; j < edgeCount; j++ {

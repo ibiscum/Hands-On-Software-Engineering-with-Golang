@@ -2,7 +2,7 @@ package color_test
 
 import (
 	"context"
-	"math/rand"
+	//"math/rand"
 	"testing"
 
 	"github.com/ibiscum/Hands-On-Software-Engineering-with-Golang/Chapter08/color"
@@ -27,7 +27,8 @@ func (s *ColorGraphTestSuite) TearDownTest(c *gc.C) {
 
 func (s *ColorGraphTestSuite) TestUnColoredGraph(c *gc.C) {
 	// Ensure we always use the same seed to make the test deterministic
-	rand.Seed(42)
+	//rand.Seed(42)
+	//new(NewSource(42))
 
 	adjMap := map[string][]string{
 		"0": {"1", "2"},
@@ -50,7 +51,7 @@ func (s *ColorGraphTestSuite) TestUnColoredGraph(c *gc.C) {
 
 func (s *ColorGraphTestSuite) TestPartiallyPrecoloredColoredGraph(c *gc.C) {
 	// Ensure we always use the same seed to make the test deterministic
-	rand.Seed(101)
+	//rand.Seed(101)
 
 	preColoredVerts := map[string]int{
 		"0": 1,

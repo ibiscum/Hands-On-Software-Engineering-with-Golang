@@ -6,13 +6,13 @@ import (
 	"time"
 
 	"github.com/golang/mock/gomock"
-	"github.com/golang/protobuf/ptypes"
 	"github.com/golang/protobuf/ptypes/empty"
 	"github.com/google/uuid"
 	"github.com/ibiscum/Hands-On-Software-Engineering-with-Golang/Chapter06/linkgraph/graph"
 	"github.com/ibiscum/Hands-On-Software-Engineering-with-Golang/Chapter09/linksrus/linkgraphapi"
 	"github.com/ibiscum/Hands-On-Software-Engineering-with-Golang/Chapter09/linksrus/linkgraphapi/mocks"
 	"github.com/ibiscum/Hands-On-Software-Engineering-with-Golang/Chapter09/linksrus/linkgraphapi/proto"
+	"google.golang.org/protobuf/types/known/timestamppb"
 	gc "gopkg.in/check.v1"
 )
 
@@ -78,7 +78,7 @@ func (s *ClientTestSuite) TestUpsertEdge(c *gc.C) {
 			Uuid:      assignedID[:],
 			SrcUuid:   edge.Src[:],
 			DstUuid:   edge.Dst[:],
-			UpdatedAt: ptypes.TimestampNow(),
+			UpdatedAt: timestamppb.Now(),
 		},
 		nil,
 	)
