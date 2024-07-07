@@ -72,10 +72,7 @@ func (c *LinkGraphClient) UpsertEdge(edge *graph.Edge) error {
 // Links returns an iterator for the set of links whose IDs belong to the
 // [fromID, toID) range and were last accessed before the provided value.
 func (c *LinkGraphClient) Links(fromID, toID uuid.UUID, accessedBefore time.Time) (graph.LinkIterator, error) {
-	filter, err := ptypes.TimestampProto(accessedBefore)
-	if err != nil {
-		return nil, err
-	}
+	filter := timestamppb.New(accessedBefore)
 
 	req := &proto.Range{
 		FromUuid: fromID[:],

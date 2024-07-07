@@ -2,7 +2,7 @@ package crawler
 
 import (
 	"context"
-	"io/ioutil"
+	"io"
 	"net/http"
 	"time"
 
@@ -102,7 +102,7 @@ func (cfg *Config) validate() error {
 		err = multierror.Append(err, xerrors.Errorf("invalid value for re-index threshold"))
 	}
 	if cfg.Logger == nil {
-		cfg.Logger = logrus.NewEntry(&logrus.Logger{Out: ioutil.Discard})
+		cfg.Logger = logrus.NewEntry(&logrus.Logger{Out: io.Discard})
 	}
 	return err
 }

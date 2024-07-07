@@ -2,7 +2,7 @@ package service
 
 import (
 	"context"
-	"io/ioutil"
+	"io"
 	"time"
 
 	"github.com/hashicorp/go-multierror"
@@ -55,7 +55,7 @@ func (cfg *MasterConfig) validate() error {
 		err = multierror.Append(err, xerrors.Errorf("invalid value for update interval"))
 	}
 	if cfg.Logger == nil {
-		cfg.Logger = logrus.NewEntry(&logrus.Logger{Out: ioutil.Discard})
+		cfg.Logger = logrus.NewEntry(&logrus.Logger{Out: io.Discard})
 	}
 	return err
 }

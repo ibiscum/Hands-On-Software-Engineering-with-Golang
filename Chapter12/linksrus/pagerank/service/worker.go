@@ -2,7 +2,7 @@ package service
 
 import (
 	"context"
-	"io/ioutil"
+	"io"
 	"time"
 
 	"github.com/google/uuid"
@@ -68,7 +68,7 @@ func (cfg *WorkerConfig) validate() error {
 		err = multierror.Append(err, xerrors.Errorf("invalid value for compute workers"))
 	}
 	if cfg.Logger == nil {
-		cfg.Logger = logrus.NewEntry(&logrus.Logger{Out: ioutil.Discard})
+		cfg.Logger = logrus.NewEntry(&logrus.Logger{Out: io.Discard})
 	}
 	return err
 }

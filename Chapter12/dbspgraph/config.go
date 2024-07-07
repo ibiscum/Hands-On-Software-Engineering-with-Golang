@@ -1,7 +1,7 @@
 package dbspgraph
 
 import (
-	"io/ioutil"
+	"io"
 
 	"github.com/golang/protobuf/ptypes/any"
 	"github.com/hashicorp/go-multierror"
@@ -53,7 +53,7 @@ func (cfg *MasterConfig) Validate() error {
 		err = multierror.Append(err, xerrors.Errorf("aggregator serializer not specified"))
 	}
 	if cfg.Logger == nil {
-		cfg.Logger = logrus.NewEntry(&logrus.Logger{Out: ioutil.Discard})
+		cfg.Logger = logrus.NewEntry(&logrus.Logger{Out: io.Discard})
 	}
 	return err
 }
@@ -82,7 +82,7 @@ func (cfg *WorkerConfig) Validate() error {
 		err = multierror.Append(err, xerrors.Errorf("message/aggregator serializer not specified"))
 	}
 	if cfg.Logger == nil {
-		cfg.Logger = logrus.NewEntry(&logrus.Logger{Out: ioutil.Discard})
+		cfg.Logger = logrus.NewEntry(&logrus.Logger{Out: io.Discard})
 	}
 	return err
 }

@@ -37,13 +37,13 @@ func (s *ClientTestSuite) TestUpsertLink(c *gc.C) {
 		&proto.Link{
 			Uuid:        uuid.Nil[:],
 			Url:         link.URL,
-			RetrievedAt: mustEncodeTimestamp(c, link.RetrievedAt),
+			RetrievedAt: mustEncodeTimestamp(link.RetrievedAt),
 		},
 	).Return(
 		&proto.Link{
 			Uuid:        assignedID[:],
 			Url:         link.URL,
-			RetrievedAt: mustEncodeTimestamp(c, link.RetrievedAt),
+			RetrievedAt: mustEncodeTimestamp(link.RetrievedAt),
 		},
 		nil,
 	)
@@ -101,12 +101,12 @@ func (s *ClientTestSuite) TestLinks(c *gc.C) {
 	now := time.Now().Truncate(time.Second).UTC()
 	rpcCli.EXPECT().Links(
 		gomock.AssignableToTypeOf(ctxWithCancel),
-		&proto.Range{FromUuid: minUUID[:], ToUuid: maxUUID[:], Filter: mustEncodeTimestamp(c, now)},
+		&proto.Range{FromUuid: minUUID[:], ToUuid: maxUUID[:], Filter: mustEncodeTimestamp(now)},
 	).Return(linkStream, nil)
 
 	uuid1 := uuid.New()
 	uuid2 := uuid.New()
-	lastAccessed := mustEncodeTimestamp(c, now)
+	lastAccessed := mustEncodeTimestamp(now)
 	returns := [][]interface{}{
 		{&proto.Link{Uuid: uuid1[:], Url: "http://example.com", RetrievedAt: lastAccessed}, nil},
 		{&proto.Link{Uuid: uuid2[:], Url: "http://example.com", RetrievedAt: lastAccessed}, nil},
@@ -151,7 +151,7 @@ func (s *ClientTestSuite) TestEdges(c *gc.C) {
 	now := time.Now().Truncate(time.Second).UTC()
 	rpcCli.EXPECT().Edges(
 		gomock.AssignableToTypeOf(ctxWithCancel),
-		&proto.Range{FromUuid: minUUID[:], ToUuid: maxUUID[:], Filter: mustEncodeTimestamp(c, now)},
+		&proto.Range{FromUuid: minUUID[:], ToUuid: maxUUID[:], Filter: mustEncodeTimestamp(now)},
 	).Return(edgeStream, nil)
 
 	uuid1 := uuid.New()
@@ -161,8 +161,8 @@ func (s *ClientTestSuite) TestEdges(c *gc.C) {
 	updatedAt := time.Now().UTC()
 
 	returns := [][]interface{}{
-		{&proto.Edge{Uuid: uuid1[:], SrcUuid: srcID[:], DstUuid: dstID[:], UpdatedAt: mustEncodeTimestamp(c, updatedAt)}, nil},
-		{&proto.Edge{Uuid: uuid2[:], SrcUuid: srcID[:], DstUuid: dstID[:], UpdatedAt: mustEncodeTimestamp(c, updatedAt)}, nil},
+		{&proto.Edge{Uuid: uuid1[:], SrcUuid: srcID[:], DstUuid: dstID[:], UpdatedAt: mustEncodeTimestamp(updatedAt)}, nil},
+		{&proto.Edge{Uuid: uuid2[:], SrcUuid: srcID[:], DstUuid: dstID[:], UpdatedAt: mustEncodeTimestamp(updatedAt)}, nil},
 		{nil, io.EOF},
 	}
 	edgeStream.EXPECT().Recv().DoAndReturn(
@@ -203,7 +203,7 @@ func (s *ClientTestSuite) TestRetainVersionedEdges(c *gc.C) {
 
 	rpcCli.EXPECT().RemoveStaleEdges(
 		gomock.AssignableToTypeOf(context.TODO()),
-		&proto.RemoveStaleEdgesQuery{FromUuid: from[:], UpdatedBefore: mustEncodeTimestamp(c, now)},
+		&proto.RemoveStaleEdgesQuery{FromUuid: from[:], UpdatedBefore: mustEncodeTimestamp(now)},
 	).Return(new(empty.Empty), nil)
 
 	cli := linkgraphapi.NewLinkGraphClient(context.TODO(), rpcCli)

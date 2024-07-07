@@ -5,7 +5,6 @@ import (
 	"fmt"
 	"html/template"
 	"io"
-	"io/ioutil"
 	"net"
 	"net/http"
 	"net/url"
@@ -85,7 +84,7 @@ func (cfg *Config) validate() error {
 		err = multierror.Append(err, xerrors.Errorf("graph API has not been provided"))
 	}
 	if cfg.Logger == nil {
-		cfg.Logger = logrus.NewEntry(&logrus.Logger{Out: ioutil.Discard})
+		cfg.Logger = logrus.NewEntry(&logrus.Logger{Out: io.Discard})
 	}
 	return err
 }

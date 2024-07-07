@@ -63,7 +63,7 @@ func (s *ServerTestSuite) TestInsertLink(c *gc.C) {
 	now := time.Now().Truncate(time.Second).UTC()
 	req := &proto.Link{
 		Url:         "http://example.com",
-		RetrievedAt: mustEncodeTimestamp(c, now),
+		RetrievedAt: mustEncodeTimestamp(now),
 	}
 
 	res, err := s.cli.UpsertLink(context.TODO(), req)
@@ -82,7 +82,7 @@ func (s *ServerTestSuite) TestUpdateLink(c *gc.C) {
 	req := &proto.Link{
 		Uuid:        link.ID[:],
 		Url:         "http://example.com",
-		RetrievedAt: mustEncodeTimestamp(c, now),
+		RetrievedAt: mustEncodeTimestamp(now),
 	}
 
 	res, err := s.cli.UpsertLink(context.TODO(), req)
@@ -147,7 +147,7 @@ func (s *ServerTestSuite) TestLinks(c *gc.C) {
 		sawLinks[link.ID] = false
 	}
 
-	filter := mustEncodeTimestamp(c, time.Now().Add(time.Hour))
+	filter := mustEncodeTimestamp(time.Now().Add(time.Hour))
 	stream, err := s.cli.Links(context.TODO(), &proto.Range{FromUuid: minUUID[:], ToUuid: maxUUID[:], Filter: filter})
 	c.Assert(err, gc.IsNil)
 	for {
@@ -198,7 +198,7 @@ func (s *ServerTestSuite) TestEdges(c *gc.C) {
 		sawEdges[edge.ID] = false
 	}
 
-	filter := mustEncodeTimestamp(c, time.Now().Add(time.Hour))
+	filter := mustEncodeTimestamp(time.Now().Add(time.Hour))
 	stream, err := s.cli.Edges(context.TODO(), &proto.Range{FromUuid: minUUID[:], ToUuid: maxUUID[:], Filter: filter})
 	c.Assert(err, gc.IsNil)
 	for {
@@ -248,7 +248,7 @@ func (s *ServerTestSuite) TestRetainVersionedEdges(c *gc.C) {
 
 	req := &proto.RemoveStaleEdgesQuery{
 		FromUuid:      src.ID[:],
-		UpdatedBefore: mustEncodeTimestamp(c, t1),
+		UpdatedBefore: mustEncodeTimestamp(t1),
 	}
 	_, err := s.cli.RemoveStaleEdges(context.TODO(), req)
 	c.Assert(err, gc.IsNil)

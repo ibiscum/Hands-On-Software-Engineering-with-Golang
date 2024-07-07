@@ -3,7 +3,7 @@ package pagerank
 import (
 	"context"
 	"errors"
-	"io/ioutil"
+	"io"
 	"time"
 
 	"github.com/google/uuid"
@@ -82,7 +82,7 @@ func (cfg *Config) validate() error {
 		err = multierror.Append(err, xerrors.Errorf("invalid value for update interval"))
 	}
 	if cfg.Logger == nil {
-		cfg.Logger = logrus.NewEntry(&logrus.Logger{Out: ioutil.Discard})
+		cfg.Logger = logrus.NewEntry(&logrus.Logger{Out: io.Discard})
 	}
 	return err
 }

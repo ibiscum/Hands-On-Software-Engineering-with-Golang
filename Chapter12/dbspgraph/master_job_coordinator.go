@@ -4,7 +4,6 @@ import (
 	"context"
 	"sync"
 
-	"github.com/golang/protobuf/ptypes"
 	"github.com/google/uuid"
 	"github.com/ibiscum/Hands-On-Software-Engineering-with-Golang/Chapter08/bspgraph"
 	"github.com/ibiscum/Hands-On-Software-Engineering-with-Golang/Chapter12/dbspgraph/job"
@@ -12,6 +11,7 @@ import (
 	"github.com/ibiscum/Hands-On-Software-Engineering-with-Golang/Chapter12/dbspgraph/proto"
 	"github.com/sirupsen/logrus"
 	"golang.org/x/xerrors"
+	"google.golang.org/protobuf/types/known/timestamppb"
 )
 
 // masterJobCoordinatorConfig encapsulates the configuration options for the
@@ -119,10 +119,7 @@ func (c *masterJobCoordinator) publishJobDetails(w *remoteWorkerStream, assigned
 		return xerrors.Errorf("unable to calculate partition assignment: %w", err)
 	}
 
-	ts, err := ptypes.TimestampProto(c.cfg.jobDetails.CreatedAt)
-	if err != nil {
-		return xerrors.Errorf("unable to encode job creation time: %w", err)
-	}
+	ts := timestamppb.New(c.cfg.jobDetails.CreatedAt)
 
 	c.sendToWorker(w, &proto.MasterPayload{
 		Payload: &proto.MasterPayload_JobDetails{
