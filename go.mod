@@ -3,7 +3,7 @@ module github.com/ibiscum/Hands-On-Software-Engineering-with-Golang
 go 1.22.1
 
 require (
-	github.com/blevesearch/bleve/v2 v2.4.0
+	github.com/blevesearch/bleve/v2 v2.4.1
 	github.com/elastic/go-elasticsearch v0.0.0
 	github.com/golang/mock v1.6.0
 	github.com/golang/protobuf v1.5.4
