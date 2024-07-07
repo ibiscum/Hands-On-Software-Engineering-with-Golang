@@ -90,8 +90,8 @@ github.com/hashicorp/go-multierror v1.1.1/go.mod h1:iw975J/qwKPdAO1clOe2L8331t/9
 github.com/json-iterator/go v1.1.12 h1:PV8peI4a0ysnczrg+LtxykD8LfKY9ML6u2jnxaEnrnM=
 github.com/json-iterator/go v1.1.12/go.mod h1:e30LSqwooZae/UwlEbR2852Gd8hjQvJoHmT4TnhNGBo=
 github.com/juju/ansiterm v0.0.0-20180109212912-720a0952cc2a/go.mod h1:UJSiEoRfvx3hP73CvoARgeLjaIOjybY9vj8PUPPFGeU=
-github.com/juju/clock v1.0.3 h1:yJHIsWXeU8j3QcBdiess09SzfiXRRrsjKPn2whnMeds=
-github.com/juju/clock v1.0.3/go.mod h1:HIBvJ8kiV/n7UHwKuCkdYL4l/MDECztHR2sAvWDxxf0=
+github.com/juju/clock v1.1.1 h1:NvgHG9DQmOpBevgt6gzkyimdWBooLXDy1cQn89qJzBI=
+github.com/juju/clock v1.1.1/go.mod h1:HIBvJ8kiV/n7UHwKuCkdYL4l/MDECztHR2sAvWDxxf0=
 github.com/juju/collections v0.0.0-20200605021417-0d0ec82b7271 h1:4R626WTwa7pRYQFiIRLVPepMhm05eZMEx+wIurRnMLc=
 github.com/juju/collections v0.0.0-20200605021417-0d0ec82b7271/go.mod h1:5XgO71dV1JClcOJE+4dzdn4HrI5LiyKd7PlVG6eZYhY=
 github.com/juju/errors v1.0.0 h1:yiq7kjCLll1BiaRuNY53MGI0+EQ3rF6GB+wvboZDefM=
