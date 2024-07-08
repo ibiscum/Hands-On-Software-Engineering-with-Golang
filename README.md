@@ -28,11 +28,6 @@ This book covers the following exciting features:
 * Develop a graph processing system and extend it to run in a distributed manner
 * Deploy Go services on Kubernetes and monitor their health using Prometheus
 
-If you feel this book is for you, get your [copy](https://www.amazon.com/dp/1838554491) today!
-
-<a href="https://www.packtpub.com/?utm_source=github&utm_medium=banner&utm_campaign=GitHubBanner"><img src="https://raw.githubusercontent.com/ibiscum/GitHub/master/GitHub.png"
-alt="https://www.packtpub.com/" border="5" /></a>
-
 ## Instructions
 All of the code is organized into folders labelled after the chapter they
 appear on. For example, Chapter02 contains the source code for the second book
