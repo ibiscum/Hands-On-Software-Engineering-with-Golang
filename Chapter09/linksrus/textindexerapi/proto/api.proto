@@ -1,6 +1,8 @@
 syntax="proto3";
 package proto;
 
+option go_package = "github.com/ibiscum/Hands-On-Software-Emgineering-with-Golang/Chapter09/linksrus/textindexerapi/proto";
+
 import "google/protobuf/timestamp.proto";
 import "google/protobuf/empty.proto";
 
@@ -46,7 +48,7 @@ service TextIndexer {
   // and existing document.
   rpc Index(Document) returns (Document);
 
-  // Search the index for a particular query and stream the results back to 
+  // Search the index for a particular query and stream the results back to
   // the client. The first response will include the total result count while
   // all subsequent responses will include documents from the resultset.
   rpc Search(Query) returns (stream QueryResult);

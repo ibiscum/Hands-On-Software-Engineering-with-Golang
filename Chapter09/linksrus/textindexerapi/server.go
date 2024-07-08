@@ -4,18 +4,19 @@ import (
 	"context"
 	"time"
 
-	"github.com/golang/protobuf/ptypes"
 	"github.com/golang/protobuf/ptypes/empty"
 	"github.com/golang/protobuf/ptypes/timestamp"
 	"github.com/google/uuid"
 	"github.com/ibiscum/Hands-On-Software-Engineering-with-Golang/Chapter06/textindexer/index"
 	"github.com/ibiscum/Hands-On-Software-Engineering-with-Golang/Chapter09/linksrus/textindexerapi/proto"
+	"google.golang.org/protobuf/types/known/timestamppb"
 )
 
 var _ proto.TextIndexerServer = (*TextIndexerServer)(nil)
 
 // TextIndexerServer provides a gRPC layer for indexing and querying documents.
 type TextIndexerServer struct {
+	proto.UnimplementedTextIndexerServer
 	i index.Indexer
 }
 
@@ -114,6 +115,6 @@ func uuidFromBytes(b []byte) uuid.UUID {
 }
 
 func timeToProto(t time.Time) *timestamp.Timestamp {
-	ts, _ := ptypes.TimestampProto(t)
+	ts := timestamppb.New(t)
 	return ts
 }

@@ -4,7 +4,6 @@ import (
 	"context"
 	"io"
 
-	"github.com/golang/protobuf/ptypes"
 	"github.com/google/uuid"
 	"github.com/ibiscum/Hands-On-Software-Engineering-with-Golang/Chapter06/textindexer/index"
 	"github.com/ibiscum/Hands-On-Software-Engineering-with-Golang/Chapter09/linksrus/textindexerapi/proto"
@@ -41,10 +40,12 @@ func (c *TextIndexerClient) Index(doc *index.Document) error {
 		return err
 	}
 
-	t, err := ptypes.Timestamp(res.IndexedAt)
-	if err != nil {
+	if err := res.GetIndexedAt().CheckValid(); err != nil {
+		// handle error
 		return xerrors.Errorf("unable to decode indexedAt attribute of document %q: %w", doc.LinkID, err)
 	}
+
+	t := res.GetIndexedAt().AsTime()
 
 	doc.IndexedAt = t
 	return nil
@@ -124,12 +125,14 @@ func (it *resultIterator) Next() bool {
 
 	linkID := uuidFromBytes(resDoc.LinkId)
 
-	t, err := ptypes.Timestamp(resDoc.IndexedAt)
-	if err != nil {
+	if err := resDoc.GetIndexedAt().CheckValid(); err != nil {
+		// handle error
 		it.cancelFn()
 		it.lastErr = xerrors.Errorf("unable to decode indexedAt attribute of document %q: %w", linkID, err)
 		return false
 	}
+
+	t := resDoc.GetIndexedAt().AsTime()
 
 	it.next = &index.Document{
 		LinkID:    linkID,

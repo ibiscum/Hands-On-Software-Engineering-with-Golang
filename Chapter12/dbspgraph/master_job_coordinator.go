@@ -81,11 +81,11 @@ func (c *masterJobCoordinator) RunJob() error {
 	// Start a goroutine to process incoming messages from each worker.
 	var wg sync.WaitGroup
 	wg.Add(len(c.cfg.workers))
-	graph := executor.Graph()
+	//graph := executor.Graph()
 	for workerIndex, worker := range c.cfg.workers {
 		go func(workerIndex int, worker *remoteWorkerStream) {
 			defer wg.Done()
-			c.handleWorkerPayloads(workerIndex, worker, graph)
+			c.handleWorkerPayloads(workerIndex, worker)
 		}(workerIndex, worker)
 	}
 
@@ -160,8 +160,11 @@ func (c *masterJobCoordinator) runJobToCompletion(executor *bspgraph.Executor) e
 
 // handleWorkerPayloads implements the receive loop for messages sent by remote
 // workers.
-func (c *masterJobCoordinator) handleWorkerPayloads(workerIndex int, worker *remoteWorkerStream, graph *bspgraph.Graph) {
+//func (c *masterJobCoordinator) handleWorkerPayloads(workerIndex int, worker *remoteWorkerStream, graph *bspgraph.Graph) {
+
+func (c *masterJobCoordinator) handleWorkerPayloads(workerIndex int, worker *remoteWorkerStream) {
 	var wPayload *proto.WorkerPayload
+
 	for {
 		select {
 		case wPayload = <-worker.RecvFromWorkerChan():

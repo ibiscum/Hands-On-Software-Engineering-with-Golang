@@ -4,10 +4,13 @@ import (
 	"testing"
 	"time"
 
-	"github.com/golang/protobuf/ptypes"
 	"github.com/golang/protobuf/ptypes/timestamp"
+	"google.golang.org/protobuf/types/known/timestamppb"
+
 	gc "gopkg.in/check.v1"
 )
+
+var err error
 
 func Test(t *testing.T) {
 	// Run all gocheck test-suites
@@ -15,7 +18,7 @@ func Test(t *testing.T) {
 }
 
 func mustEncodeTimestamp(c *gc.C, t time.Time) *timestamp.Timestamp {
-	ts, err := ptypes.TimestampProto(t)
+	ts := timestamppb.New(t)
 	c.Assert(err, gc.IsNil)
 	return ts
 }
