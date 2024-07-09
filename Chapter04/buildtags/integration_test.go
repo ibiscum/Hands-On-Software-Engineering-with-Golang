@@ -1,6 +1,6 @@
-// +build integration_tests all_tests
+//go:build integration_tests || all_tests
 
-package all_test
+package all_tests
 
 import "testing"
 

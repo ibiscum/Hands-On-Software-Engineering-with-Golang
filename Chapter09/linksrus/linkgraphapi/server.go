@@ -10,6 +10,7 @@ import (
 	"github.com/google/uuid"
 	"github.com/ibiscum/Hands-On-Software-Engineering-with-Golang/Chapter06/linkgraph/graph"
 	"github.com/ibiscum/Hands-On-Software-Engineering-with-Golang/Chapter09/linksrus/linkgraphapi/proto"
+	"google.golang.org/protobuf/types/known/timestamppb"
 )
 
 var _ proto.LinkGraphServer = (*LinkGraphServer)(nil)
@@ -182,6 +183,6 @@ func uuidFromBytes(b []byte) uuid.UUID {
 }
 
 func timeToProto(t time.Time) *timestamp.Timestamp {
-	ts, _ := ptypes.TimestampProto(t)
+	ts := timestamppb.New(t)
 	return ts
 }

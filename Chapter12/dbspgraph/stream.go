@@ -2,6 +2,7 @@ package dbspgraph
 
 import (
 	"context"
+	"errors"
 	"io"
 	"sync"
 
@@ -160,7 +161,7 @@ func (s *remoteMasterStream) HandleSendRecv() error {
 	for {
 		select {
 		case wPayload := <-s.sendMsgCh:
-			if err := s.stream.Send(wPayload); err != nil && !xerrors.Is(err, io.EOF) {
+			if err := s.stream.Send(wPayload); err != nil && !errors.Is(err, io.EOF) {
 				return err
 			}
 		case <-s.ctx.Done():

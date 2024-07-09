@@ -2,6 +2,7 @@ package crawler
 
 import (
 	"context"
+	"errors"
 	"io"
 	"net/http"
 	"time"
@@ -146,7 +147,7 @@ func (svc *Service) Run(ctx context.Context) error {
 		case <-svc.cfg.Clock.After(svc.cfg.UpdateInterval):
 			curPartition, numPartitions, err := svc.cfg.PartitionDetector.PartitionInfo()
 			if err != nil {
-				if xerrors.Is(err, partition.ErrNoPartitionDataAvailableYet) {
+				if errors.Is(err, partition.ErrNoPartitionDataAvailableYet) {
 					svc.cfg.Logger.Warn("deferring crawler update pass: partition data not yet available")
 					continue
 				}

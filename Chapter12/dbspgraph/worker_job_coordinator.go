@@ -2,6 +2,7 @@ package dbspgraph
 
 import (
 	"context"
+	"errors"
 	"sync"
 
 	"github.com/ibiscum/Hands-On-Software-Engineering-with-Golang/Chapter08/bspgraph"
@@ -76,7 +77,7 @@ func (c *workerJobCoordinator) RunJob() error {
 	// Run job to completion or until an error occurs
 	if err = c.runJobToCompletion(executor); err != nil {
 		c.cfg.jobRunner.AbortJob(c.cfg.jobDetails)
-		if xerrors.Is(err, context.Canceled) {
+		if errors.Is(err, context.Canceled) {
 			err = errJobAborted
 		}
 		if c.asyncWorkerErr != nil {

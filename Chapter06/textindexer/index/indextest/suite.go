@@ -1,12 +1,12 @@
 package indextest
 
 import (
+	"errors"
 	"fmt"
 	"time"
 
 	"github.com/google/uuid"
 	"github.com/ibiscum/Hands-On-Software-Engineering-with-Golang/Chapter06/textindexer/index"
-	"golang.org/x/xerrors"
 	gc "gopkg.in/check.v1"
 )
 
@@ -53,7 +53,7 @@ func (s *SuiteBase) TestIndexDocument(c *gc.C) {
 	}
 
 	err = s.idx.Index(incompleteDoc)
-	c.Assert(xerrors.Is(err, index.ErrMissingLinkID), gc.Equals, true)
+	c.Assert(errors.Is(err, index.ErrMissingLinkID), gc.Equals, true)
 }
 
 // TestIndexDoesNotOverridePageRank verifies the indexing logic for new and
@@ -114,7 +114,7 @@ func (s *SuiteBase) TestFindByID(c *gc.C) {
 
 	// Look up unknown
 	_, err = s.idx.FindByID(uuid.New())
-	c.Assert(xerrors.Is(err, index.ErrNotFound), gc.Equals, true)
+	c.Assert(errors.Is(err, index.ErrNotFound), gc.Equals, true)
 }
 
 // TestPhraseSearch verifies the document search logic when searching for

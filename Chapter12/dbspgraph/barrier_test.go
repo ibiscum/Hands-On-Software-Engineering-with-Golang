@@ -2,10 +2,10 @@ package dbspgraph
 
 import (
 	"context"
+	"errors"
 	"sync"
 
 	"github.com/ibiscum/Hands-On-Software-Engineering-with-Golang/Chapter12/dbspgraph/proto"
-	"golang.org/x/xerrors"
 	gc "gopkg.in/check.v1"
 )
 
@@ -59,7 +59,7 @@ func (s *MasterBarrierTestSuite) TestContextCancelledWhileWorkerEnteringBarrier(
 
 	b := newMasterStepBarrier(ctx, 1)
 	_, err := b.Wait(&proto.Step{Type: proto.Step_PRE})
-	c.Assert(xerrors.Is(err, errJobAborted), gc.Equals, true)
+	c.Assert(errors.Is(err, errJobAborted), gc.Equals, true)
 }
 
 func (s *MasterBarrierTestSuite) TestContextCancelledWhileWorkerExitingBarrier(c *gc.C) {
@@ -71,7 +71,7 @@ func (s *MasterBarrierTestSuite) TestContextCancelledWhileWorkerExitingBarrier(c
 	go func() {
 		defer wg.Done()
 		_, err := b.Wait(&proto.Step{Type: proto.Step_PRE})
-		c.Assert(xerrors.Is(err, errJobAborted), gc.Equals, true)
+		c.Assert(errors.Is(err, errJobAborted), gc.Equals, true)
 	}()
 
 	// Wait for worker to enter and then cancel the context
@@ -90,7 +90,7 @@ func (s *MasterBarrierTestSuite) TestContextCancelledWhileWaitingForWorkers(c *g
 	b := newMasterStepBarrier(ctx, 1)
 
 	_, err := b.WaitForWorkers(proto.Step_POST_KEEP_RUNNING)
-	c.Assert(xerrors.Is(err, errJobAborted), gc.Equals, true)
+	c.Assert(errors.Is(err, errJobAborted), gc.Equals, true)
 }
 
 func (s *MasterBarrierTestSuite) TestContextCancelledWhileNotifyingWorkers(c *gc.C) {
@@ -100,7 +100,7 @@ func (s *MasterBarrierTestSuite) TestContextCancelledWhileNotifyingWorkers(c *gc
 	b := newMasterStepBarrier(ctx, 1)
 
 	err := b.NotifyWorkers(&proto.Step{Type: proto.Step_EXECUTED_GRAPH})
-	c.Assert(xerrors.Is(err, errJobAborted), gc.Equals, true)
+	c.Assert(errors.Is(err, errJobAborted), gc.Equals, true)
 }
 
 func (s *MasterBarrierTestSuite) TestUnsupportedStepType(c *gc.C) {

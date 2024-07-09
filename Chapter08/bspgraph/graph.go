@@ -1,6 +1,7 @@
 package bspgraph
 
 import (
+	"errors"
 	"sync"
 	"sync/atomic"
 
@@ -223,7 +224,7 @@ func (g *Graph) SendMessage(dstID string, msg message.Message) error {
 	// that is processed at another node. If a remote relayer has been
 	// configured delegate the message send operation to it.
 	if g.relayer != nil {
-		if err := g.relayer.Relay(dstID, msg); !xerrors.Is(err, ErrDestinationIsLocal) {
+		if err := g.relayer.Relay(dstID, msg); !errors.Is(err, ErrDestinationIsLocal) {
 			return err
 		}
 	}

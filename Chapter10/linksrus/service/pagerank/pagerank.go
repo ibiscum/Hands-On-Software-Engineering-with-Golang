@@ -218,7 +218,7 @@ func (svc *Service) loadEdges(fromID, toID uuid.UUID, filter time.Time) error {
 		edge := edgeIt.Edge()
 		// As new edges may have been created since the links were loaded be
 		// tolerant to UnknownEdgeSource errors.
-		if err = svc.calculator.AddEdge(edge.Src.String(), edge.Dst.String()); err != nil && !xerrors.Is(err, bspgraph.ErrUnknownEdgeSource) {
+		if err = svc.calculator.AddEdge(edge.Src.String(), edge.Dst.String()); err != nil && !errors.Is(err, bspgraph.ErrUnknownEdgeSource) {
 			_ = edgeIt.Close()
 			return err
 		}

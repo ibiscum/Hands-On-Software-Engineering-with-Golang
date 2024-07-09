@@ -2,6 +2,7 @@ package dbspgraph
 
 import (
 	"context"
+	"errors"
 	"sync"
 
 	"github.com/google/uuid"
@@ -91,7 +92,7 @@ func (c *masterJobCoordinator) RunJob() error {
 
 	if err = c.runJobToCompletion(executor); err != nil {
 		c.cfg.jobRunner.AbortJob(c.cfg.jobDetails)
-		if xerrors.Is(err, context.Canceled) {
+		if errors.Is(err, context.Canceled) {
 			err = errJobAborted
 		}
 	}
