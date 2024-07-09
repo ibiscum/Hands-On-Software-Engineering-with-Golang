@@ -5,13 +5,13 @@ import (
 	"sync"
 	"time"
 
-	"github.com/golang/protobuf/ptypes"
 	"github.com/google/uuid"
 	"github.com/ibiscum/Hands-On-Software-Engineering-with-Golang/Chapter12/dbspgraph/job"
 	"github.com/ibiscum/Hands-On-Software-Engineering-with-Golang/Chapter12/dbspgraph/proto"
 	"github.com/sirupsen/logrus"
 	"golang.org/x/xerrors"
 	"google.golang.org/grpc"
+	"google.golang.org/grpc/credentials/insecure"
 )
 
 // Worker coordinates the execution of a distributed graph-based algorithm
@@ -34,14 +34,14 @@ func NewWorker(cfg WorkerConfig) (*Worker, error) {
 
 // Dial establishes a connection to the master node.
 func (w *Worker) Dial(masterEndpoint string, dialTimeout time.Duration) error {
-	var dialCtx context.Context
-	if dialTimeout != 0 {
-		var cancelFn func()
-		dialCtx, cancelFn = context.WithTimeout(context.Background(), dialTimeout)
-		defer cancelFn()
-	}
+	//var dialCtx context.Context
+	// if dialTimeout != 0 {
+	// 	var cancelFn func()
+	// 	dialCtx, cancelFn = context.WithTimeout(context.Background(), dialTimeout)
+	// 	defer cancelFn()
+	// }
 
-	conn, err := grpc.DialContext(dialCtx, masterEndpoint, grpc.WithInsecure(), grpc.WithBlock())
+	conn, err := grpc.NewClient(masterEndpoint, grpc.WithTransportCredentials(insecure.NewCredentials()))
 	if err != nil {
 		return xerrors.Errorf("unable to dial master: %w", err)
 	}
@@ -125,7 +125,7 @@ func (w *Worker) waitForJob(jobStream proto.JobQueue_JobStreamClient) (job.Detai
 	}
 
 	jobDetails.JobID = jobDetailsMsg.JobId
-	if jobDetails.CreatedAt, err = ptypes.Timestamp(jobDetailsMsg.CreatedAt); err != nil {
+	if err = jobDetailsMsg.GetCreatedAt().CheckValid(); err != nil {
 		return jobDetails, xerrors.Errorf("unable to parse job creation time: %w", err)
 	} else if jobDetails.PartitionFromID, err = uuid.FromBytes(jobDetailsMsg.PartitionFromUuid[:]); err != nil {
 		return jobDetails, xerrors.Errorf("unable to parse partition start UUID: %w", err)

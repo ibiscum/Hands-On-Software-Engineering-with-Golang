@@ -4,7 +4,6 @@ import (
 	"context"
 	"time"
 
-	"github.com/golang/protobuf/ptypes"
 	"github.com/golang/protobuf/ptypes/empty"
 	"github.com/golang/protobuf/ptypes/timestamp"
 	"github.com/google/uuid"
@@ -36,7 +35,7 @@ func (s *LinkGraphServer) UpsertLink(_ context.Context, req *proto.Link) (*proto
 		}
 	)
 
-	if link.RetrievedAt, err = ptypes.Timestamp(req.RetrievedAt); err != nil {
+	if err = req.GetRetrievedAt().CheckValid(); err != nil {
 		return nil, err
 	}
 
@@ -72,15 +71,19 @@ func (s *LinkGraphServer) UpsertEdge(_ context.Context, req *proto.Edge) (*proto
 // Links streams the set of links whose IDs belong to the specified partition
 // range and were accessed before the specified timestamp.
 func (s *LinkGraphServer) Links(idRange *proto.Range, w proto.LinkGraph_LinksServer) error {
-	accessedBefore, err := ptypes.Timestamp(idRange.Filter)
+
+	err := idRange.GetFilter().CheckValid()
 	if err != nil && idRange.Filter != nil {
 		return err
 	}
+
+	accessedBefore := idRange.GetFilter().AsTime()
 
 	fromID, err := uuid.FromBytes(idRange.FromUuid)
 	if err != nil {
 		return err
 	}
+
 	toID, err := uuid.FromBytes(idRange.ToUuid)
 	if err != nil {
 		return err
@@ -115,15 +118,18 @@ func (s *LinkGraphServer) Links(idRange *proto.Range, w proto.LinkGraph_LinksSer
 // Edges streams the set of edges whose IDs belong to the specified partition
 // range and were updated before the specified timestamp.
 func (s *LinkGraphServer) Edges(idRange *proto.Range, w proto.LinkGraph_EdgesServer) error {
-	updatedBefore, err := ptypes.Timestamp(idRange.Filter)
+	err := idRange.GetFilter().CheckValid()
 	if err != nil && idRange.Filter != nil {
 		return err
 	}
+
+	updatedBefore := idRange.Filter.AsTime()
 
 	fromID, err := uuid.FromBytes(idRange.FromUuid)
 	if err != nil {
 		return err
 	}
+
 	toID, err := uuid.FromBytes(idRange.ToUuid)
 	if err != nil {
 		return err
@@ -159,10 +165,12 @@ func (s *LinkGraphServer) Edges(idRange *proto.Range, w proto.LinkGraph_EdgesSer
 // RemoveStaleEdges removes any edge that originates from the specified
 // link ID and was updated before the specified timestamp.
 func (s *LinkGraphServer) RemoveStaleEdges(_ context.Context, req *proto.RemoveStaleEdgesQuery) (*empty.Empty, error) {
-	updatedBefore, err := ptypes.Timestamp(req.UpdatedBefore)
+	err := req.GetUpdatedBefore().CheckValid()
 	if err != nil {
 		return nil, err
 	}
+
+	updatedBefore := req.GetUpdatedBefore().AsTime()
 
 	err = s.g.RemoveStaleEdges(
 		uuidFromBytes(req.FromUuid),

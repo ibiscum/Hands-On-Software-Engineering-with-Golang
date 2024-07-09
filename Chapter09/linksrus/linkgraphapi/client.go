@@ -5,7 +5,6 @@ import (
 	"io"
 	"time"
 
-	"github.com/golang/protobuf/ptypes"
 	"github.com/google/uuid"
 	"github.com/ibiscum/Hands-On-Software-Engineering-with-Golang/Chapter06/linkgraph/graph"
 	"github.com/ibiscum/Hands-On-Software-Engineering-with-Golang/Chapter09/linksrus/linkgraphapi/proto"
@@ -35,6 +34,7 @@ func (c *LinkGraphClient) UpsertLink(link *graph.Link) error {
 		Url:         link.URL,
 		RetrievedAt: timeToProto(link.RetrievedAt),
 	}
+
 	res, err := c.cli.UpsertLink(c.ctx, req)
 	if err != nil {
 		return err
@@ -42,7 +42,7 @@ func (c *LinkGraphClient) UpsertLink(link *graph.Link) error {
 
 	link.ID = uuidFromBytes(res.Uuid)
 	link.URL = res.Url
-	if link.RetrievedAt, err = ptypes.Timestamp(res.RetrievedAt); err != nil {
+	if err := res.GetRetrievedAt().CheckValid(); err != nil {
 		return err
 	}
 
@@ -62,7 +62,7 @@ func (c *LinkGraphClient) UpsertEdge(edge *graph.Edge) error {
 	}
 
 	edge.ID = uuidFromBytes(res.Uuid)
-	if edge.UpdatedAt, err = ptypes.Timestamp(res.UpdatedAt); err != nil {
+	if err := res.GetUpdatedAt().CheckValid(); err != nil {
 		return err
 	}
 
@@ -146,12 +146,14 @@ func (it *linkIterator) Next() bool {
 		return false
 	}
 
-	lastAccessed, err := ptypes.Timestamp(res.RetrievedAt)
+	err = res.GetRetrievedAt().CheckValid()
 	if err != nil {
 		it.lastErr = err
 		it.cancelFn()
 		return false
 	}
+
+	lastAccessed := res.GetRetrievedAt().AsTime()
 
 	it.next = &graph.Link{
 		ID:          uuidFromBytes(res.Uuid),
@@ -195,12 +197,14 @@ func (it *edgeIterator) Next() bool {
 		return false
 	}
 
-	updatedAt, err := ptypes.Timestamp(res.UpdatedAt)
+	err = res.GetUpdatedAt().CheckValid()
 	if err != nil {
 		it.lastErr = err
 		it.cancelFn()
 		return false
 	}
+
+	updatedAt := res.GetUpdatedAt().AsTime()
 
 	it.next = &graph.Edge{
 		ID:        uuidFromBytes(res.Uuid),

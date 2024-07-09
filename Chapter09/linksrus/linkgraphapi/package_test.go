@@ -4,7 +4,6 @@ import (
 	"testing"
 	"time"
 
-	"github.com/golang/protobuf/ptypes"
 	"github.com/golang/protobuf/ptypes/timestamp"
 	"google.golang.org/protobuf/types/known/timestamppb"
 	gc "gopkg.in/check.v1"
@@ -21,7 +20,8 @@ func mustEncodeTimestamp(t time.Time) *timestamp.Timestamp {
 }
 
 func mustDecodeTimestamp(c *gc.C, ts *timestamp.Timestamp) time.Time {
-	t, err := ptypes.Timestamp(ts)
+	t := ts.AsTime()
+	var err error
 	c.Assert(err, gc.IsNil)
 	return t
 }

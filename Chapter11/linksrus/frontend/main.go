@@ -10,7 +10,6 @@ import (
 	"os/signal"
 	"sync"
 	"syscall"
-	"time"
 
 	"github.com/ibiscum/Hands-On-Software-Engineering-with-Golang/Chapter09/linksrus/linkgraphapi"
 	linkgraphproto "github.com/ibiscum/Hands-On-Software-Engineering-with-Golang/Chapter09/linksrus/linkgraphapi/proto"
@@ -21,6 +20,7 @@ import (
 	"github.com/urfave/cli"
 	"golang.org/x/xerrors"
 	"google.golang.org/grpc"
+	"google.golang.org/grpc/credentials/insecure"
 )
 
 var (
@@ -162,17 +162,17 @@ func getAPIs(ctx context.Context, linkGraphAPI, textIndexerAPI string) (*linkgra
 		return nil, nil, xerrors.Errorf("text indexer API must be specified with --text-indexer-api")
 	}
 
-	dialCtx, cancelFn := context.WithTimeout(ctx, 5*time.Second)
-	defer cancelFn()
-	linkGraphConn, err := grpc.DialContext(dialCtx, linkGraphAPI, grpc.WithInsecure(), grpc.WithBlock())
+	//dialCtx, cancelFn := context.WithTimeout(ctx, 5*time.Second)
+	//defer cancelFn()
+	linkGraphConn, err := grpc.NewClient(linkGraphAPI, grpc.WithTransportCredentials(insecure.NewCredentials()))
 	if err != nil {
 		return nil, nil, xerrors.Errorf("could not connect to link graph API: %w", err)
 	}
 	graphCli := linkgraphapi.NewLinkGraphClient(ctx, linkgraphproto.NewLinkGraphClient(linkGraphConn))
 
-	dialCtx, cancelFn = context.WithTimeout(ctx, 5*time.Second)
-	defer cancelFn()
-	indexerConn, err := grpc.DialContext(dialCtx, textIndexerAPI, grpc.WithInsecure(), grpc.WithBlock())
+	//dialCtx, cancelFn = context.WithTimeout(ctx, 5*time.Second)
+	//defer cancelFn()
+	indexerConn, err := grpc.NewClient(textIndexerAPI, grpc.WithTransportCredentials(insecure.NewCredentials()))
 	if err != nil {
 		return nil, nil, xerrors.Errorf("could not connect to text indexer API: %w", err)
 	}

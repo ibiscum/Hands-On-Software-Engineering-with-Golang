@@ -26,6 +26,7 @@ func (s *ClientTestSuite) TestUpsertLink(c *gc.C) {
 	rpcCli := mocks.NewMockLinkGraphClient(ctrl)
 
 	now := time.Now().Truncate(time.Second).UTC()
+
 	link := &graph.Link{
 		URL:         "http://www.example.com",
 		RetrievedAt: now,
