@@ -59,9 +59,9 @@ func (s *remoteWorkerStream) HandleSendRecv() error {
 			if !ok { // signalled to close without an error
 				return nil
 			}
-			return status.Errorf(codes.Aborted, err.Error())
+			return status.Errorf(codes.Aborted, "%v", err.Error())
 		case <-ctx.Done():
-			return status.Errorf(codes.Aborted, errJobAborted.Error())
+			return status.Errorf(codes.Aborted, "%v", errJobAborted.Error())
 		}
 	}
 }
