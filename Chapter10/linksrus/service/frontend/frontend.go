@@ -283,8 +283,8 @@ func (svc *Service) runQuery(searchTerms string, offset uint64) ([]matchedDoc, *
 		}
 	}
 	var nextPageOffset int
-	if offset > uint64(^uint(0)>>1) {
-		nextPageOffset = int(^uint(0) >> 1) // max int value
+	if offset > uint64(^int(0)) {
+		nextPageOffset = int(^int(0)) // max int value
 	} else {
 		nextPageOffset = int(offset) + len(matchedDocs)
 	}
