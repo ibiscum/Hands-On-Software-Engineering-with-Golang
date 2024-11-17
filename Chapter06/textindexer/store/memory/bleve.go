@@ -110,6 +110,9 @@ func (i *InMemoryBleveIndexer) Search(q index.Query) (index.Iterator, error) {
 	searchReq := bleve.NewSearchRequest(bq)
 	searchReq.SortBy([]string{"-PageRank", "-_score"})
 	searchReq.Size = batchSize
+	if q.Offset > uint64(^uint(0)) {
+		return nil, xerrors.Errorf("search: offset value out of bounds")
+	}
 	searchReq.From = int(q.Offset)
 	rs, err := i.idx.Search(searchReq)
 	if err != nil {
