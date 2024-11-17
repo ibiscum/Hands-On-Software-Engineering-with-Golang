@@ -9,6 +9,7 @@ import (
 	"github.com/google/uuid"
 	"github.com/ibiscum/Hands-On-Software-Engineering-with-Golang/Chapter06/textindexer/index"
 	"golang.org/x/xerrors"
+	"math"
 )
 
 // The size of each page of results that is cached locally by the iterator.
@@ -110,7 +111,7 @@ func (i *InMemoryBleveIndexer) Search(q index.Query) (index.Iterator, error) {
 	searchReq := bleve.NewSearchRequest(bq)
 	searchReq.SortBy([]string{"-PageRank", "-_score"})
 	searchReq.Size = batchSize
-	if q.Offset > uint64(^uint(0)) {
+	if q.Offset > uint64(math.MaxInt) {
 		return nil, xerrors.Errorf("search: offset value out of bounds")
 	}
 	searchReq.From = int(q.Offset)
