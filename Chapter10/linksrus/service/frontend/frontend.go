@@ -282,7 +282,13 @@ func (svc *Service) runQuery(searchTerms string, offset uint64) ([]matchedDoc, *
 			pagination.PrevLink += fmt.Sprintf("&offset=%d", prevOffset)
 		}
 	}
-	if nextPageOffset := int(offset) + len(matchedDocs); nextPageOffset < pagination.Total {
+	var nextPageOffset int
+	if offset > uint64(^uint(0)>>1) {
+		nextPageOffset = int(^uint(0) >> 1) // max int value
+	} else {
+		nextPageOffset = int(offset) + len(matchedDocs)
+	}
+	if nextPageOffset < pagination.Total {
 		pagination.NextLink = fmt.Sprintf("%s?q=%s&offset=%d", searchEndpoint, searchTerms, nextPageOffset)
 	}
 
