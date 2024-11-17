@@ -5,9 +5,11 @@ name: test
 
 on:
   push:
-    branches: [ "master" ]
+    branches:
+      - main
   pull_request:
-    branches: [ "master" ]
+    branches:
+      - main
 env: 
   TEST_NO_CI: true
 

@@ -1,6 +1,6 @@
 module github.com/ibiscum/Hands-On-Software-Engineering-with-Golang
 
-go 1.23.1
+go 1.23.2
 
 require (
 	github.com/blevesearch/bleve/v2 v2.4.3
@@ -28,9 +28,7 @@ require (
 
 require (
 	github.com/HdrHistogram/hdrhistogram-go v1.1.2 // indirect
-	github.com/PuerkitoBio/goquery v1.10.0 // indirect
 	github.com/RoaringBitmap/roaring v1.9.4 // indirect
-	github.com/andybalholm/cascadia v1.3.2 // indirect
 	github.com/aymerick/douceur v0.2.0 // indirect
 	github.com/beorn7/perks v1.0.1 // indirect
 	github.com/bits-and-blooms/bitset v1.15.0 // indirect
