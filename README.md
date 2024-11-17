@@ -4,6 +4,8 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Go Report Card](https://goreportcard.com/badge/github.com/ibiscum/Hands-On-Software-Engineering-with-Golang)](https://goreportcard.com/report/github.com/ibiscum/Hands-On-Software-Engineering-with-Golang)
 [![lint](https://github.com/ibiscum/Hands-On-Software-Engineering-with-Golang/actions/workflows/lint.yml/badge.svg)](https://github.com/ibiscum/Hands-On-Software-Engineering-with-Golang/actions/workflows/lint.yml)
+[![build](https://github.com/ibiscum/Hands-On-Software-Engineering-with-Golang/actions/workflows/build.yml/badge.svg)](https://github.com/ibiscum/Hands-On-Software-Engineering-with-Golang/actions/workflows/build.yml)
+[![codeql go](https://github.com/ibiscum/Hands-On-Software-Engineering-with-Golang/actions/workflows/codeql.yml/badge.svg)](https://github.com/ibiscum/Hands-On-Software-Engineering-with-Golang/actions/workflows/codeql.yml)
 
 <a href="https://www.packtpub.com/in/programming/hands-on-software-engineering-with-golang?utm_source=github&utm_medium=repository&utm_campaign="><img src="https://www.packtpub.com/media/catalog/product/cache/e4d64343b1bc593f1c5348fe05efa4a6/9/7/9781838554491-original.png" alt="" height="256px" align="right"></a>
 
