@@ -1,7 +1,6 @@
 module github.com/ibiscum/Hands-On-Software-Engineering-with-Golang
 
 go 1.23.2
-
 require (
 	github.com/blevesearch/bleve/v2 v2.4.4
 	github.com/elastic/go-elasticsearch v0.0.0
@@ -22,7 +21,7 @@ require (
 	golang.org/x/oauth2 v0.25.0
 	golang.org/x/xerrors v0.0.0-20240903120638-7835f813f4da
 	google.golang.org/grpc v1.70.0
-	google.golang.org/protobuf v1.36.4
+	google.golang.org/protobuf v1.36.6
 	gopkg.in/check.v1 v1.0.0-20201130134442-10cb98267c6c
 )
 
