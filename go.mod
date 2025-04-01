@@ -1,7 +1,6 @@
 module github.com/ibiscum/Hands-On-Software-Engineering-with-Golang
 
 go 1.23.2
-
 require (
 	github.com/blevesearch/bleve/v2 v2.4.4
 	github.com/elastic/go-elasticsearch v0.0.0
@@ -15,7 +14,7 @@ require (
 	github.com/lib/pq v1.10.9
 	github.com/microcosm-cc/bluemonday v1.0.27
 	github.com/opentracing/opentracing-go v1.2.0
-	github.com/prometheus/client_golang v1.20.5
+	github.com/prometheus/client_golang v1.21.1
 	github.com/sirupsen/logrus v1.9.3
 	github.com/uber/jaeger-client-go v2.30.0+incompatible
 	github.com/urfave/cli v1.22.16
@@ -67,7 +66,7 @@ require (
 	github.com/munnerz/goautoneg v0.0.0-20191010083416-a7dc8b61c822 // indirect
 	github.com/pkg/errors v0.9.1 // indirect
 	github.com/prometheus/client_model v0.6.1 // indirect
-	github.com/prometheus/common v0.61.0 // indirect
+	github.com/prometheus/common v0.62.0 // indirect
 	github.com/prometheus/procfs v0.15.1 // indirect
 	github.com/rogpeppe/go-internal v1.13.1 // indirect
 	github.com/russross/blackfriday/v2 v2.1.0 // indirect
