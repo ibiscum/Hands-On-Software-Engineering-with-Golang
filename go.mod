@@ -1,6 +1,6 @@
 module github.com/ibiscum/Hands-On-Software-Engineering-with-Golang
 
-go 1.23.2
+go 1.25.0
 
 require (
 	github.com/blevesearch/bleve/v2 v2.4.4
@@ -21,8 +21,8 @@ require (
 	github.com/urfave/cli v1.22.17
 	golang.org/x/oauth2 v0.25.0
 	golang.org/x/xerrors v0.0.0-20240903120638-7835f813f4da
-	google.golang.org/grpc v1.70.0
-	google.golang.org/protobuf v1.36.5
+	google.golang.org/grpc v1.81.1
+	google.golang.org/protobuf v1.36.11
 	gopkg.in/check.v1 v1.0.0-20201130134442-10cb98267c6c
 )
 
@@ -73,8 +73,8 @@ require (
 	github.com/uber/jaeger-lib v2.4.1+incompatible // indirect
 	go.etcd.io/bbolt v1.3.11 // indirect
 	go.uber.org/atomic v1.11.0 // indirect
-	golang.org/x/net v0.33.0 // indirect
-	golang.org/x/sys v0.30.0 // indirect
-	golang.org/x/text v0.21.0 // indirect
-	google.golang.org/genproto/googleapis/rpc v0.0.0-20241219192143-6b3ec007d9bb // indirect
+	golang.org/x/net v0.51.0 // indirect
+	golang.org/x/sys v0.42.0 // indirect
+	golang.org/x/text v0.34.0 // indirect
+	google.golang.org/genproto/googleapis/rpc v0.0.0-20260226221140-a57be14db171 // indirect
 )
